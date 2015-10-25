@@ -6,10 +6,10 @@ from bottle import default_app, route,run,static_file
 def hello_world():
     return 'Hello from Bottle!'
 
-@route('/static/<filename>')
+@route('/shtml/<filename>')
 def server_static(filename):
-    return static_file(filename, root='static')
+    return static_file(filename, root='static/html')
 
 application = default_app()
 
-#run(host='localhost', port=8080)
+run(host='localhost', port=8080)
