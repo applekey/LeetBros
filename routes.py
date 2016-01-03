@@ -1,6 +1,7 @@
 from bottle import route,static_file
-import sys
-sys.path.append("attachments/")
+import sys,os
+attachmentDirectory = os.path.join(os.getcwd(),'attachments')
+sys.path.append(attachmentDirectory)
 from emailAdapter import *
 
 @route('/')
