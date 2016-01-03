@@ -27,9 +27,10 @@ def server_static(function):
     if function == 'attachments':
         emailad = emailAdapter('applekeyhousing@gmail.com','vancouver!@#')
         emailad.connect()
+        attachments = emailad.listAttachments()
         emailad.disconnect()
-        return 'hellos'
+        return attachments
 
 application = default_app()
 
-run(reloader=True,debug=True, host='localhost', port=8000)
+run(reloader=True,debug=True, host='localhost', port=8001)
