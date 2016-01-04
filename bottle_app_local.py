@@ -6,4 +6,4 @@ from routes import *
 
 application = default_app()
 
-run(reloader=True,debug=True, host='localhost', port=8002)
+run(reloader=True,debug=True, host='localhost', port=8080)
