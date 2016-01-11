@@ -5,3 +5,5 @@ link at the top right) for help on how to use
 PythonAnywhere, including tips on Dropbox support, copying
 and pasting from consoles, and writing your own web
 applications.
+
+#mysql -u applekey -h applekey.mysql.pythonanywhere-services.com 'applekey$housing' -p
