@@ -8,15 +8,17 @@ class dbAdapter:
     #   'database': 'employees',
     #   'raise_on_warnings': True,
     # }
-    def __init__(self, username,password):
+    def __init__(self, username,password,host,database):
         self.username = username
         self.password = password
+        self.host = host
+        self.database = database
         self.connection = None
 
     def connect(self):
         self.connection = mysql.connector.connect(user=self.username, password=self.password,
-                              host='127.0.0.1',
-                              database='housing')
+                              host=self.host,
+                              database=self.database)
                               #connector.connect(**config)
     def querry(self,querry, vars):
         raise Exception('Not implemented')
@@ -28,4 +30,4 @@ class dbAdapter:
 #     cursor.close()
 
     def disconnect(self):
-        self.connect.close()
+        self.connection.close()

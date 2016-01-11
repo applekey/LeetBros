@@ -1,8 +1,15 @@
 import sys,os
-attachmentDirectory = os.path.join(os.getcwd(),'attachments')
-sys.path.append(attachmentDirectory)
+dbDirectory = os.path.join(os.getcwd(),'db')
+sys.path.append(dbDirectory)
 
-from dbAdater import *
+from peopleAdapter import *
 
+username = 'applekey'
+password = 'vancouver!@#'
+host = "applekey.mysql.pythonanywhere-services.com"
+database = 'applekey$housing'
 
-adapter = dbAdapter()
+adapter = peopleAdapter(username,password,host,database)
+adapter.connect()
+print adapter.querryClients()
+adapter.disconnect()
