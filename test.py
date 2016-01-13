@@ -6,6 +6,7 @@ sys.path.append(emailDir)
 
 from peopleAdapter import *
 from emailAdapter import *
+from engine import *
 
 # username = 'applekey'
 # password = 'vancouver!@#'
@@ -17,18 +18,22 @@ password = ''
 host = "127.0.0.1"
 database = 'shayak'
 
+engine = Engine()
+engine.Run()
 
-adapter = peopleAdapter(username,password,host,database)
-adapter.connect()
-print adapter.queryClients()
-#print adapter.queryBill()
-print adapter.queryOwed()
-adapter.disconnect()
+# adapter = peopleAdapter(username,password,host,database)
+# adapter.connect()
+# print adapter.queryClients()
+# print adapter.queryBill()
+# print adapter.queryOwed()
+# print adapter.queryUnpaidBills()
+# adapter.disconnect()
+
 #######
 def createBillReminderMail():
-	return {
-		'email' : 'shayak007@gmail.com', 'title' : title, 'html': html
-	}
+    return {
+        'email' : 'shayak007@gmail.com', 'title' : title, 'html': html
+    }
 
 
 data = { 'email': 'applekey@gmail.com', 'personname': 'shayak', 'billname': 'bill1', 
@@ -49,7 +54,7 @@ html="""\
         """.format(data['bill_link'], data['personname'])
 title = 'Reminder: {0} due on {1}'.format(data['billname'], data['billdate'])
 
-adapter = emailAdapter('dotaspider007@gmail.com', 'dotapass')
+#adapter = emailAdapter('dotaspider007@gmail.com', 'dotapass')
 #adapter.sendHtmlMail(createBillReminderMail())
 
 
