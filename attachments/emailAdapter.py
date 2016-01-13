@@ -64,3 +64,27 @@ class emailAdapter:
             return json.dumps(attachments)
         else:
             return None
+
+    def sendHtmlMail(self, data):
+        import smtplib
+        from email.MIMEMultipart import MIMEMultipart
+        from email.MIMEText import MIMEText
+
+        gmailUser = self.username
+        gmailPassword = self.password
+        recipient = data['email']
+        title = data['title']
+
+        msg = MIMEMultipart()
+        msg['From'] = "William Reminder"
+        msg['To'] = recipient
+        msg['Subject'] = title
+        msg.attach(MIMEText(data['html'], 'html'))
+
+        mailServer = smtplib.SMTP('smtp.gmail.com', 587)
+        mailServer.ehlo()
+        mailServer.starttls()
+        mailServer.ehlo()
+        mailServer.login(gmailUser, gmailPassword)
+        mailServer.sendmail(gmailUser, recipient, msg.as_string())
+        mailServer.close()

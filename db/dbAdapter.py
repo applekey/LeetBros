@@ -20,7 +20,7 @@ class dbAdapter:
                               host=self.host,
                               database=self.database)
                               #connector.connect(**config)
-    def querry(self,querry, vars):
+    def query(self,query, vars):
         raise Exception('Not implemented')
 # cursor.execute(query, (hire_start, hire_end))
 #
