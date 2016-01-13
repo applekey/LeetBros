@@ -6,10 +6,10 @@ class peopleAdapter(dbAdapter):
         result = []
         cursor = self.connection.cursor()
         cursor.execute(query)
-        for curResult in cursor:
-            row = dict(zip(cursor.column_names, cursor.fetchone()))
-            print row
-            result.append(row)
+        row = cursor.fetchone()
+        while row is not None:
+            result.append(dict(zip(cursor.column_names, row)))
+            row = cursor.fetchone()
         cursor.close()
         return result
 

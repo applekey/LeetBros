@@ -36,7 +36,7 @@ class Engine:
                 'email': bill['email'],
                 'html': self.getEmailHtml(params)
             }
-            #self.__emailAdapter.sendHtmlMail(data)
+            self.__emailAdapter.sendHtmlMail(data)
 
     def getEmailHtml(self, data):
         return """\
