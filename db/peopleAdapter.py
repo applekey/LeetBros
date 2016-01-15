@@ -23,10 +23,11 @@ class peopleAdapter(dbAdapter):
             cursor.execute(query,clientData)
             self.connection.commit()
             cursor.close()
+            return True
         except:
             #log this failure
             print 'failure'
-            pass
+            return False
         finally:
             if cursor != None:
                 cursor.close()

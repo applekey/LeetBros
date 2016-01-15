@@ -25,7 +25,7 @@ def server_static(filepath):
     return static_file(filepath, root='static/startbootstrap-sb-admin-2-gh-pages/')
 
 @route('/addTenant', method='POST')
-def do_login():
+def addTenant():
     print 'hererererre'
     tenantName = request.forms.get('tenantName')
     tenantEmail = request.forms.get('tenantEmail')
@@ -42,9 +42,13 @@ def do_login():
 
     pplAdapter =peopleAdapter(username,password,host,database)
     pplAdapter.connect()
-    pplAdapter.createClient(container)
+    successCreate = pplAdapter.createClient(container)
     pplAdapter.disconnect()
-    print 'done'
+
+    if successCreate == True:
+        return 'Done'
+    else:
+        return 'Error'
 
 
 @route('/functions/<function>')
