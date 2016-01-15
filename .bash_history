@@ -346,3 +346,56 @@ vim routes.py
 ls
 cd my
 screen
+ls
+cd gitDownloads/
+ls
+rm -rf mosh/
+wget https://mosh.mit.edu/mosh-1.2.5.tar.gz
+ls
+tar -xvf mosh-1.2.5.tar.gz 
+ls
+cd mosh-1.2.5/
+ls
+./configure 
+make
+clear
+cd ..
+ls
+cd ..
+ls
+ls
+cd db/
+ls
+vim createPeople.sql 
+ls
+vim peopleAdapter.py
+ls
+git status
+git add -u
+git status
+ls
+cd ../
+ls
+rm -rf gitDownloads/
+ls
+git status
+rm static/html/.addTenant.html.swp
+ls
+git add .
+git status
+git commit -m "Working on add tenant page"
+git remote 
+git push vchen master
+git push vchen master
+git pull
+git pull vchen master
+git status
+vim db/peopleAdapter.py
+git add db/peopleAdapter.py
+git status
+git commit -m "merge"
+git push vchen master
+ls
+git branch
+git checkout -b vlocal
+git branch

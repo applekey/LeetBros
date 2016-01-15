@@ -4,9 +4,11 @@ attachmentDirectory = os.path.join(os.getcwd(),'attachments')
 dbDirectory = os.path.join(os.getcwd(),'db')
 sys.path.append(attachmentDirectory)
 sys.path.append(dbDirectory)
+
 from emailAdapter import *
 from peopleAdapter import *
 from peopleContainer import *
+from dbManager import *
 
 @route('/')
 def hello_world():
@@ -25,7 +27,7 @@ def server_static(filepath):
     return static_file(filepath, root='static/startbootstrap-sb-admin-2-gh-pages/')
 
 @route('/addTenant', method='POST')
-def do_login():
+def addTenant():
     print 'hererererre'
     tenantName = request.forms.get('tenantName')
     tenantEmail = request.forms.get('tenantEmail')
@@ -33,16 +35,19 @@ def do_login():
     container = peopleContainer((tenantName)
                                 ,(tenantEmail))
 
-    ##fixifixifix mofomomomomfoo
-    username = 'applekey'
-    password = 'vancouver!@#'
-    host = "applekey.mysql.pythonanywhere-services.com"
-    database = 'applekey$housing'
+    print tenantName + tenantEmail
 
+    (username,password,host,database) = dbManager.getDBConfig()
+    
     pplAdapter =peopleAdapter(username,password,host,database)
     pplAdapter.connect()
-    pplAdapter.createClient(container)
+    successCreate = pplAdapter.createClient(container)
     pplAdapter.disconnect()
+
+    if successCreate == True:
+        return 'Done'
+    else:
+        return 'Error'
 
 
 @route('/functions/<function>')

@@ -8,26 +8,32 @@ from peopleAdapter import *
 from emailAdapter import *
 from engine import *
 
+
 # username = 'applekey'
 # password = 'vancouver!@#'
 # host = "applekey.mysql.pythonanywhere-services.com"
 # database = 'applekey$housing'
 
-username = 'shek'
-password = ''
+# username = 'shek'
+# password = ''
+# host = "127.0.0.1"
+# database = 'shayak'
+
+username = 'root'
+password = 'password'
 host = "127.0.0.1"
-database = 'shayak'
+database = 'housing'
 
-engine = Engine()
-engine.Run()
+# engine = Engine()
+# engine.Run()
 
-# adapter = peopleAdapter(username,password,host,database)
-# adapter.connect()
-# print adapter.queryClients()
+adapter = peopleAdapter(username,password,host,database)
+adapter.connect()
+print adapter.queryClients()
 # print adapter.queryBill()
 # print adapter.queryOwed()
 # print adapter.queryUnpaidBills()
-# adapter.disconnect()
+adapter.disconnect()
 
 #######
 def createBillReminderMail():
@@ -36,7 +42,7 @@ def createBillReminderMail():
     }
 
 
-data = { 'email': 'applekey@gmail.com', 'personname': 'shayak', 'billname': 'bill1', 
+data = { 'email': 'applekey@gmail.com', 'personname': 'shayak', 'billname': 'bill1',
 'bill_link' : 'applekey.pythonanywhere.com', 'billdate': datetime.datetime.now()}
 
 html="""\
@@ -56,6 +62,3 @@ title = 'Reminder: {0} due on {1}'.format(data['billname'], data['billdate'])
 
 #adapter = emailAdapter('dotaspider007@gmail.com', 'dotapass')
 #adapter.sendHtmlMail(createBillReminderMail())
-
-
-

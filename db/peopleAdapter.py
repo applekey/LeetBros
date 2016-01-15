@@ -16,15 +16,18 @@ class peopleAdapter(dbAdapter):
     def createClient(self, clientContainer):
         cursor = None
         clientData = (clientContainer.name,clientContainer.email)
+        print clientData
         try:
             cursor = self.connection.cursor()
-            query = ("INSERT INTO people_tbl ('people_name','people_email') values(%s, %s)")
+            query = ("INSERT INTO people_tbl (people_name,people_email) VALUES (%s, %s)")
             cursor.execute(query,clientData)
             self.connection.commit()
             cursor.close()
+            return True
         except:
             #log this failure
-            pass
+            print 'failure'
+            return False
         finally:
             if cursor != None:
                 cursor.close()
