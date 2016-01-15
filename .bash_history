@@ -169,3 +169,143 @@ ls
  mysql -uapplekey -happlekey.mysql.pythonanywhere-services.com -p
  mysql -uapplekey -happlekey.mysql.pythonanywhere-services.com -p
  mysql -uapplekey$housing -happlekey.mysql.pythonanywhere-services.com -p
+ls
+vim test.py 
+vim test.py 
+ls
+cd mysite/
+ls
+git status
+git reset
+git status
+git branch
+git checkout master
+ls
+git pull vchen master
+clear
+ls
+clear
+ls
+git checkout live
+git rebase master
+git log
+ls
+python test.py 
+cd db/
+ls
+cd ..
+pwd
+ls
+git remote -v
+cd ..
+ls
+cd ..
+ls
+cd applekey/
+ls
+ls
+ls
+rm -rf mysite/
+ls
+cd ..
+git clone git@github.com:applekey/LeetBros.git  applekey/
+cd applekey/
+git clone git@github.com:applekey/LeetBros.git  .
+git@github.com:applekey/LeetBros.git site
+git@github.com:applekey/LeetBros.git ..site
+ls
+mkdir site
+cd site/
+git@github.com:applekey/LeetBros.git .
+cd ..
+git@github.com:applekey/LeetBros.git site/
+git clone git@github.com:applekey/LeetBros.git site/
+ls
+rm -rf site/
+ls
+git init
+git remote add vchen git@github.com:applekey/LeetBros.git
+git fetch ori
+git fetch origin
+git fetch vchen
+git checkout -b master
+ls
+git pull
+git pull vchen
+git pull vchen master
+ls
+git status
+ls
+python test.py 
+python test.py 
+python test.py 
+python
+clear
+ls
+python test.py 
+mysql
+mysql -u housing -p
+mysql -u 'housing' -p
+ls
+mkdir mysite
+ls
+cd mysite/
+ls
+ls
+mysql
+mysql -u housing -p
+ls
+cd ..
+ls
+mysql -u 'housing -p
+'
+mysql -u 'housing' -p
+mysql -u applekey$housing -p
+mysql -uapplekey -hmysql.server -p
+mysql -uapplekey$housing -happlekey.mysql.pythonanywhere-services.com -p
+mysql -u applekey -h applekey.mysql.pythonanywhere-services.com -p
+mysql -u applekey -h applekey.mysql.pythonanywhere-services.com 'applekey$housing' -p
+clear
+ls
+python test.py 
+python test.py 
+python test.py 
+python test.py 
+python test.py 
+python test.py 
+python test.py 
+python test.py 
+python test.py 
+python test.py 
+python test.py 
+git status
+git add -u
+git status
+git add .
+git commit -m "fixed bunch o stuff"
+git push vchen master
+git push vchen master -f
+history
+git pull
+git pull vchen master
+mysql -u applekey -h applekey.mysql.pythonanywhere-services.com 'applekey$housing' -p
+ls
+python test.py
+mysql -u applekey -h applekey.mysql.pythonanywhere-services.com 'applekey$housing' -p
+git status
+ls
+show branches
+git branch
+git branch -r
+git status
+git remote -v
+cat .gitignore
+vim db/dbAdapter.py
+mysql -u applekey -h applekey.mysql.pythonanywhere-services.com 'applekey$housing' -p
+exit
+pip
+pip install most
+pip install mosh
+sudo apt-get install mosh
+ apt-get install mosh
+apt-get install mosh

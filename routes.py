@@ -28,3 +28,5 @@ def server_static(function):
         attachments = emailad.listAttachments()
         emailad.disconnect()
         return attachments
+    if function == 'addTenant':
+        return 'tenantAdded'

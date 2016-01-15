@@ -11,8 +11,10 @@
 ~Msle0~/)
 
 # Command Line History (newest to oldest):
-:x
 :q
+:w
+:q!
+:x
 
 # Search String History (newest to oldest):
 ? )
@@ -24,17 +26,32 @@
 # Input Line History (newest to oldest):
 
 # Registers:
-""-	CHAR	0
-	y
+""1	LINE	0
+	
+"2	LINE	0
+	        paslais
+"-	CHAR	0
+	dbDi
 
 # File marks:
-'0  8  20  ~/test.py
-'1  1  0  ~/mysite/.git/MERGE_MSG
-'2  1  0  ~/mysite/.git/COMMIT_EDITMSG
+'0  32  29  ~/db/peopleAdapter.py
+'1  1  0  ~/db/createPeople.sql
+'2  32  27  ~/routes.py
+'3  32  1  ~/db/dbAdapter.py
+'4  8  13  ~/test.py
+'5  1  0  ~/mysite/.git/MERGE_MSG
+'6  1  0  ~/mysite/.git/COMMIT_EDITMSG
 
 # Jumplist (newest first):
--'  8  20  ~/test.py
--'  3  15  ~/test.py
+-'  32  29  ~/db/peopleAdapter.py
+-'  1  0  ~/db/peopleAdapter.py
+-'  1  0  ~/db/createPeople.sql
+-'  32  27  ~/routes.py
+-'  1  0  ~/routes.py
+-'  32  1  ~/db/dbAdapter.py
+-'  1  0  ~/db/dbAdapter.py
+-'  8  13  ~/test.py
+-'  3  16  ~/test.py
 -'  1  0  ~/test.py
 -'  1  0  ~/mysite/.git/MERGE_MSG
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
@@ -42,15 +59,145 @@
 -'  1  0  ~/mysite/.git/MERGE_MSG
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  8  13  ~/test.py
+-'  3  16  ~/test.py
+-'  1  0  ~/test.py
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  32  1  ~/db/dbAdapter.py
+-'  1  0  ~/db/dbAdapter.py
+-'  8  13  ~/test.py
+-'  3  16  ~/test.py
+-'  1  0  ~/test.py
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  8  13  ~/test.py
+-'  3  16  ~/test.py
+-'  1  0  ~/test.py
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  32  1  ~/db/dbAdapter.py
+-'  1  0  ~/db/dbAdapter.py
+-'  8  13  ~/test.py
+-'  3  16  ~/test.py
+-'  1  0  ~/test.py
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  8  13  ~/test.py
+-'  3  16  ~/test.py
+-'  1  0  ~/test.py
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/MERGE_MSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  1  0  ~/mysite/.git/COMMIT_EDITMSG
+-'  32  27  ~/routes.py
+-'  1  0  ~/routes.py
 
 # History of marks within files (newest to oldest):
 
+> ~/db/peopleAdapter.py
+	"	32	29
+	^	24	43
+	.	24	42
+	+	33	11
+	+	3	46
+	+	4	20
+	+	5	20
+	+	6	0
+	+	33	0
+	+	22	40
+	+	26	22
+	+	21	11
+	+	22	41
+	+	26	0
+	+	22	0
+	+	29	15
+	+	28	28
+	+	30	16
+	+	19	20
+	+	31	22
+	+	32	29
+	+	29	0
+	+	23	91
+	+	24	32
+	+	20	64
+	+	24	42
+	+	25	35
+	+	17	0
+	+	29	0
+	+	24	42
+
+> ~/db/createPeople.sql
+	"	1	0
+
+> ~/routes.py
+	"	32	27
+	^	32	28
+	.	32	27
+	+	31	31
+	+	32	27
+
+> ~/db/dbAdapter.py
+	"	32	1
+
 > ~/test.py
-	"	8	20
-	^	3	27
-	.	3	26
+	"	8	13
+	^	5	14
+	.	5	13
 	+	2	11
-	+	3	26
+	+	3	0
+	+	5	13
 
 > ~/mysite/.git/MERGE_MSG
 	"	1	0
