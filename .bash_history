@@ -309,3 +309,93 @@ pip install mosh
 sudo apt-get install mosh
  apt-get install mosh
 apt-get install mosh
+pip
+brew install mobile-shell
+brew
+pip install brew
+ls
+cd ..
+ls
+mkdir downloads
+ls
+cd applekey/
+ls
+mkdir gitDownloads
+ls
+cd gitDownloads/
+ls
+git clone https://github.com/mobile-shell/mosh
+ls
+cd mosh/
+./autogen.sh
+./configure
+ls
+make
+./configure
+ls
+cd mysite/
+ls
+cd ..
+ls
+vim routes.py
+clear
+ls
+ls
+python routes.py
+vim routes.py
+ls
+cd my
+screen
+ls
+cd gitDownloads/
+ls
+rm -rf mosh/
+wget https://mosh.mit.edu/mosh-1.2.5.tar.gz
+ls
+tar -xvf mosh-1.2.5.tar.gz 
+ls
+cd mosh-1.2.5/
+ls
+./configure 
+make
+clear
+cd ..
+ls
+cd ..
+ls
+ls
+cd db/
+ls
+vim createPeople.sql 
+ls
+vim peopleAdapter.py
+ls
+git status
+git add -u
+git status
+ls
+cd ../
+ls
+rm -rf gitDownloads/
+ls
+git status
+rm static/html/.addTenant.html.swp
+ls
+git add .
+git status
+git commit -m "Working on add tenant page"
+git remote 
+git push vchen master
+git push vchen master
+git pull
+git pull vchen master
+git status
+vim db/peopleAdapter.py
+git add db/peopleAdapter.py
+git status
+git commit -m "merge"
+git push vchen master
+ls
+git branch
+git checkout -b vlocal
+git branch

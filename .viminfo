@@ -11,10 +11,10 @@
 ~Msle0~/)
 
 # Command Line History (newest to oldest):
+:x
 :q
 :w
 :q!
-:x
 
 # Search String History (newest to oldest):
 ? )
@@ -27,23 +27,36 @@
 
 # Registers:
 ""1	LINE	0
-	
+	<<<<<<< HEAD
 "2	LINE	0
+	=======
+"3	LINE	0
+	>>>>>>> e50b3b73f0d9c12ca41bb39b1a2780633ffbf02e
+"4	LINE	0
+	
+"5	LINE	0
 	        paslais
 "-	CHAR	0
 	dbDi
 
 # File marks:
-'0  32  29  ~/db/peopleAdapter.py
-'1  1  0  ~/db/createPeople.sql
-'2  32  27  ~/routes.py
-'3  32  1  ~/db/dbAdapter.py
-'4  8  13  ~/test.py
-'5  1  0  ~/mysite/.git/MERGE_MSG
-'6  1  0  ~/mysite/.git/COMMIT_EDITMSG
+'0  6  7  ~/.gitignore
+'1  1  33  ~/.git/rebase-merge/git-rebase-todo
+'2  49  4  ~/db/peopleAdapter.py
+'3  31  29  ~/db/peopleAdapter.py
+'4  1  0  ~/db/createPeople.sql
+'5  32  27  ~/routes.py
+'6  32  1  ~/db/dbAdapter.py
+'7  8  13  ~/test.py
+'8  1  0  ~/mysite/.git/MERGE_MSG
+'9  1  0  ~/mysite/.git/COMMIT_EDITMSG
 
 # Jumplist (newest first):
--'  32  29  ~/db/peopleAdapter.py
+-'  6  7  ~/.gitignore
+-'  1  0  ~/.gitignore
+-'  1  33  ~/.git/rebase-merge/git-rebase-todo
+-'  49  4  ~/db/peopleAdapter.py
+-'  31  15  ~/db/peopleAdapter.py
 -'  1  0  ~/db/peopleAdapter.py
 -'  1  0  ~/db/createPeople.sql
 -'  32  27  ~/routes.py
@@ -138,45 +151,55 @@
 -'  1  0  ~/mysite/.git/MERGE_MSG
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/MERGE_MSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  32  27  ~/routes.py
--'  1  0  ~/routes.py
 
 # History of marks within files (newest to oldest):
 
+> ~/.gitignore
+	"	6	7
+	^	6	8
+	.	6	8
+	+	6	8
+
+> ~/.git/rebase-merge/git-rebase-todo
+	"	1	33
+	^	1	34
+	.	1	34
+	+	1	34
+
 > ~/db/peopleAdapter.py
-	"	32	29
-	^	24	43
-	.	24	42
-	+	33	11
+	"	49	4
+	^	23	43
+	.	20	0
+	+	32	11
 	+	3	46
 	+	4	20
 	+	5	20
 	+	6	0
-	+	33	0
-	+	22	40
-	+	26	22
-	+	21	11
-	+	22	41
-	+	26	0
-	+	22	0
-	+	29	15
-	+	28	28
-	+	30	16
+	+	32	0
+	+	21	40
+	+	25	22
+	+	20	11
+	+	21	41
+	+	25	0
+	+	21	0
+	+	28	15
+	+	27	28
+	+	29	16
 	+	19	20
-	+	31	22
-	+	32	29
-	+	29	0
-	+	23	91
-	+	24	32
+	+	30	22
+	+	31	29
+	+	28	0
+	+	22	91
+	+	23	32
 	+	20	64
-	+	24	42
-	+	25	35
+	+	23	42
+	+	24	35
 	+	17	0
-	+	29	0
-	+	24	42
+	+	28	0
+	+	23	42
+	+	50	0
+	+	35	0
+	+	20	0
 
 > ~/db/createPeople.sql
 	"	1	0
