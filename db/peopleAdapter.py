@@ -1,8 +1,9 @@
 from dbAdapter import *
 class clientContainer:
     #this class contains the fields for clients
-    self.name = None
-    self.email = None
+    def __init__(self):
+        self.name = None
+        self.email = None
 
 class peopleAdapter(dbAdapter):
 
@@ -21,8 +22,8 @@ class peopleAdapter(dbAdapter):
         cursor = None
         clientData = (clientContainer.name,clientContainer.email)
         try:
-            cursor = self.connection.cursor() 
-            query = ("INSERT INTO people_tbl ('people_name','people_email') values(%s, %s)") 
+            cursor = self.connection.cursor()
+            query = ("INSERT INTO people_tbl ('people_name','people_email') values(%s, %s)")
             cursor.execute(query,clientData)
             self.connection.commit()
             cursor.close()
@@ -32,6 +33,7 @@ class peopleAdapter(dbAdapter):
         finally:
             if cursor != None:
                 cursor.close()
+
     def queryClients(self):
         query = ("SELECT * FROM people_tbl;")
         return self.__simpleQueryRunner(query)
@@ -43,7 +45,7 @@ class peopleAdapter(dbAdapter):
     def queryPaid(self):
         query = "SELECT * from owed_tbl where paid = true;"
         return self.__simpleQueryRunner(query)
-    
+
     def queryUnpaidBills(self):
         query = "SELECT * from unpaidBills;"
         return self.__simpleQueryRunner(query)

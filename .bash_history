@@ -309,3 +309,40 @@ pip install mosh
 sudo apt-get install mosh
  apt-get install mosh
 apt-get install mosh
+pip
+brew install mobile-shell
+brew
+pip install brew
+ls
+cd ..
+ls
+mkdir downloads
+ls
+cd applekey/
+ls
+mkdir gitDownloads
+ls
+cd gitDownloads/
+ls
+git clone https://github.com/mobile-shell/mosh
+ls
+cd mosh/
+./autogen.sh
+./configure
+ls
+make
+./configure
+ls
+cd mysite/
+ls
+cd ..
+ls
+vim routes.py
+clear
+ls
+ls
+python routes.py
+vim routes.py
+ls
+cd my
+screen
