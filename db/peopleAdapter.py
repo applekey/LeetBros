@@ -1,9 +1,4 @@
 from dbAdapter import *
-class clientContainer:
-    #this class contains the fields for clients
-    def __init__(self):
-        self.name = None
-        self.email = None
 
 class peopleAdapter(dbAdapter):
 
