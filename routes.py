@@ -1,5 +1,6 @@
 from bottle import route,static_file,post,request
 import sys,os
+import json
 attachmentDirectory = os.path.join(os.getcwd(),'attachments')
 dbDirectory = os.path.join(os.getcwd(),'db')
 sys.path.append(attachmentDirectory)
@@ -38,7 +39,7 @@ def addTenant():
     print tenantName + tenantEmail
 
     (username,password,host,database) = dbManager.getDBConfig()
-    
+
     pplAdapter =peopleAdapter(username,password,host,database)
     pplAdapter.connect()
     successCreate = pplAdapter.createClient(container)
@@ -52,12 +53,18 @@ def addTenant():
 
 @route('/functions/<function>')
 def server_static(function):
-    pass
     # if function == 'attachments':
     #     emailad = emailAdapter('applekeyhousing@gmail.com','vancouver!@#')
     #     emailad.connect()
     #     attachments = emailad.listAttachments()
     #     emailad.disconnect()
     #     return attachments
-    # if function == 'addTenant':
-    #     return 'tenantAdded'
+    if function == 'viewTenants':
+        (username,password,host,database) = dbManager.getDBConfig()
+        pplAdapter =peopleAdapter(username,password,host,database)
+
+        pplAdapter.connect()
+        results = pplAdapter.queryClients()
+        pplAdapter.disconnect()
+        
+        return json.dumps(results)

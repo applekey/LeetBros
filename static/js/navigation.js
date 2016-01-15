@@ -12,3 +12,8 @@ function loadAddTenant(){
   $('#page-wrapper').empty();
   $('#page-wrapper').load('shtml/addTenant.html');
 }
+
+function loadViewTenant(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/viewTenant.html');
+}
