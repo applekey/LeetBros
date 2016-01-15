@@ -1,9 +1,4 @@
 from dbAdapter import *
-class clientContainer:
-    #this class contains the fields for clients
-    def __init__(self):
-        self.name = None
-        self.email = None
 
 class peopleAdapter(dbAdapter):
 
@@ -21,14 +16,16 @@ class peopleAdapter(dbAdapter):
     def createClient(self, clientContainer):
         cursor = None
         clientData = (clientContainer.name,clientContainer.email)
+        print clientData
         try:
             cursor = self.connection.cursor()
-            query = ("INSERT INTO people_tbl ('people_name','people_email') values(%s, %s)")
+            query = ("INSERT INTO people_tbl (people_name,people_email) VALUES (%s, %s)")
             cursor.execute(query,clientData)
             self.connection.commit()
             cursor.close()
         except:
             #log this failure
+            print 'failure'
             pass
         finally:
             if cursor != None:

@@ -40,16 +40,21 @@
 	dbDi
 
 # File marks:
-'0  49  4  ~/db/peopleAdapter.py
-'1  31  29  ~/db/peopleAdapter.py
-'2  1  0  ~/db/createPeople.sql
-'3  32  27  ~/routes.py
-'4  32  1  ~/db/dbAdapter.py
-'5  8  13  ~/test.py
-'6  1  0  ~/mysite/.git/MERGE_MSG
-'7  1  0  ~/mysite/.git/COMMIT_EDITMSG
+'0  6  7  ~/.gitignore
+'1  1  33  ~/.git/rebase-merge/git-rebase-todo
+'2  49  4  ~/db/peopleAdapter.py
+'3  31  29  ~/db/peopleAdapter.py
+'4  1  0  ~/db/createPeople.sql
+'5  32  27  ~/routes.py
+'6  32  1  ~/db/dbAdapter.py
+'7  8  13  ~/test.py
+'8  1  0  ~/mysite/.git/MERGE_MSG
+'9  1  0  ~/mysite/.git/COMMIT_EDITMSG
 
 # Jumplist (newest first):
+-'  6  7  ~/.gitignore
+-'  1  0  ~/.gitignore
+-'  1  33  ~/.git/rebase-merge/git-rebase-todo
 -'  49  4  ~/db/peopleAdapter.py
 -'  31  15  ~/db/peopleAdapter.py
 -'  1  0  ~/db/peopleAdapter.py
@@ -146,10 +151,20 @@
 -'  1  0  ~/mysite/.git/MERGE_MSG
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/MERGE_MSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
 
 # History of marks within files (newest to oldest):
+
+> ~/.gitignore
+	"	6	7
+	^	6	8
+	.	6	8
+	+	6	8
+
+> ~/.git/rebase-merge/git-rebase-todo
+	"	1	33
+	^	1	34
+	.	1	34
+	+	1	34
 
 > ~/db/peopleAdapter.py
 	"	49	4

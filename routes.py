@@ -1,4 +1,4 @@
-from bottle import route,static_file,post
+from bottle import route,static_file,post,request
 import sys,os
 attachmentDirectory = os.path.join(os.getcwd(),'attachments')
 dbDirectory = os.path.join(os.getcwd(),'db')
@@ -6,6 +6,7 @@ sys.path.append(attachmentDirectory)
 sys.path.append(dbDirectory)
 from emailAdapter import *
 from peopleAdapter import *
+from peopleContainer import *
 
 @route('/')
 def hello_world():
@@ -23,15 +24,15 @@ def server_static(filepath):
 def server_static(filepath):
     return static_file(filepath, root='static/startbootstrap-sb-admin-2-gh-pages/')
 
-@route('/', method='POST')
+@route('/addTenant', method='POST')
 def do_login():
     print 'hererererre'
     tenantName = request.forms.get('tenantName')
     tenantEmail = request.forms.get('tenantEmail')
     #create container for db entry
-    clientContainer =clientContainer()
-    clientContainer.name = string(tenantName)
-    clientContainer.email = string(tenantEmail)
+    container = peopleContainer((tenantName)
+                                ,(tenantEmail))
+    print tenantName + tenantEmail
 
     ##fixifixifix mofomomomomfoo
     username = 'applekey'
@@ -41,8 +42,9 @@ def do_login():
 
     pplAdapter =peopleAdapter(username,password,host,database)
     pplAdapter.connect()
-    pplAdapter.createClient(clientContainer)
+    pplAdapter.createClient(container)
     pplAdapter.disconnect()
+    print 'done'
 
 
 @route('/functions/<function>')
