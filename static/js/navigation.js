@@ -22,7 +22,7 @@ function insertTableElements(data)
 {
     var result = $.parseJSON( data )
     //fix fix fix check for none case
-    var headerString = "<thead> <tr> <th>#</th>"
+    var headerString = "<thead class='thead-default'> <tr> <th>#</th>"
 
     for (key in result[0])
     {
