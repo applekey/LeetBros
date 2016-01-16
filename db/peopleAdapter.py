@@ -1,4 +1,5 @@
 from dbAdapter import *
+from peopleContainer import *
 
 class peopleAdapter(dbAdapter):
 
@@ -33,8 +34,16 @@ class peopleAdapter(dbAdapter):
                 cursor.close()
 
     def queryClients(self):
-        query = ("SELECT * FROM people_tbl;")
-        return self.__simpleQueryRunner(query)
+        query = ("SELECT people_name,people_email FROM people_tbl;")
+        results = self.__simpleQueryRunner(query)
+        clientResults = []
+        for result in results:
+            clientResults.append(peopleContainer(result))
+
+        result = peopleContainer.seralizeToJsonList(clientResults)
+
+        return result
+
 
     def queryOwed(self):
         query = "SELECT * from owed_tbl where paid = false;"

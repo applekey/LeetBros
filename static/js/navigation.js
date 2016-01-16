@@ -18,6 +18,22 @@ function loadViewTenant(){
   $('#page-wrapper').load('shtml/viewTenant.html',loadTenants);
 }
 
+///****       **      **      **//
+
+// user to remap names
+function keyMapper(key)
+{
+  if(key == 'people_name')
+  {
+    return 'Client Name'
+  }
+
+  if(key == 'people_email')
+  {
+    return 'Client Email'
+  }
+}
+
 function insertTableElements(data)
 {
     var result = $.parseJSON( data )
@@ -26,7 +42,7 @@ function insertTableElements(data)
 
     for (key in result[0])
     {
-      headerString += '<th>' + key + '</th>'
+      headerString += '<th>' + keyMapper(key) + '</th>'
     }
     headerString +=" </tr>  </thead> "
     //insert in the data elements
