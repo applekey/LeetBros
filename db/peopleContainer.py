@@ -1,11 +1,11 @@
 import json
 class peopleContainer:
     #this class contains the fields for clients
-    def __init__(self,name,email):
+    def __init__(self,name = None,email = None):
         self.name = name
         self.email = email
 
-    def __init__(self,dbResult):
+    def initWithDB(self,dbResult):
         self.name = dbResult['people_name']
         self.email = dbResult['people_email']
 

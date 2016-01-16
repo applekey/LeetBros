@@ -38,7 +38,8 @@ class peopleAdapter(dbAdapter):
         results = self.__simpleQueryRunner(query)
         clientResults = []
         for result in results:
-            clientResults.append(peopleContainer(result))
+            container = peopleContainer()
+            clientResults.append(container.initWithDB(result))
 
         result = peopleContainer.seralizeToJsonList(clientResults)
 
