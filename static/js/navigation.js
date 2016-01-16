@@ -37,6 +37,7 @@ function keyMapper(key)
 function insertTableElements(data)
 {
     var result = $.parseJSON( data )
+    console.log(result)
     //fix fix fix check for none case
     var headerString = "<thead class='thead-default'> <tr> <th>#</th>"
 
@@ -55,14 +56,27 @@ function insertTableElements(data)
       {
         headerString += '<th>' + result[i][key] + '</th>'
       }
+      //insert a final checkbox for deletion
+      headerString += '<th>' + '<input type="checkbox" id="checkBoxClient" class="styled">' + '</th>'
       headerString += '</tr>'
     }
 
     headerString += '</tbody>'
     //console.log(headerString)
     $("#billTable").append(headerString)
+
 };
 
 function loadTenants(){
   $.get( "/functions/viewTenants", insertTableElements)
 };
+
+/////additional functionaity
+$(document).on('click','#deleteClient',function(e){
+  var selected = [];
+  $('#billTable input:checked').each(function() {
+      // this should be the email
+      selected.push($(this).parent().parent().contents()[2].innerText);
+  });
+  console.log(selected)
+});
