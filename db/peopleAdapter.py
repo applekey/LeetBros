@@ -45,6 +45,21 @@ class peopleAdapter(dbAdapter):
         result = peopleContainer.seralizeToJsonList(clientResults)
 
         return result
+    def deleteClient(self,clients):
+        try:
+            cursor = self.connection.cursor()
+            query = ("DElETE From people_tbl where people_email VALUES (%s, %s)")
+            cursor.execute(query,clientData)
+            self.connection.commit()
+            cursor.close()
+            return True
+        except:
+            #log this failure
+            print 'failure'
+            return False
+        finally:
+            if cursor != None:
+                cursor.close()
 
 
     def queryOwed(self):

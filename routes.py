@@ -13,6 +13,10 @@ from dbManager import *
 
 @route('/')
 def hello_world():
+    return static_file('login.html', root='static/html')
+
+@route('/start',  method='POST')
+def hello_world():
     return static_file('start.html', root='static/html')
 
 @route('/shtml/<filename>')
@@ -66,5 +70,5 @@ def server_static(function):
         pplAdapter.connect()
         results = pplAdapter.queryClients()
         pplAdapter.disconnect()
-        
+
         return json.dumps(results)
