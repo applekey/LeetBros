@@ -25,9 +25,9 @@ class peopleAdapter(dbAdapter):
             self.connection.commit()
             cursor.close()
             return True
-        except:
+        except Exception, e:
             #log this failure
-            print 'failure'
+            print "ppl adapter createClient: " + str(e)
             return False
         finally:
             if cursor != None:
@@ -41,9 +41,7 @@ class peopleAdapter(dbAdapter):
             container = peopleContainer()
             container.initWithDB(result)
             clientResults.append(container)
-
         result = peopleContainer.seralizeToJsonList(clientResults)
-
         return result
     def deleteClient(self,clients):
         try:
@@ -61,6 +59,9 @@ class peopleAdapter(dbAdapter):
             if cursor != None:
                 cursor.close()
 
+    def queryClientByEmail(self, email):
+        query = ("SELECT * FROM people_tbl WHERE people_email='{0}';".format(email))
+        return self.__simpleQueryRunner(query)[0]
 
     def queryOwed(self):
         query = "SELECT * from owed_tbl where paid = false;"

@@ -1,0 +1,62 @@
+<div class='addbill' style='padding-top: 30px;'>
+  <form class="form-horizontal" action="addBill" method="POST">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Add Bill</legend>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="peopleDropdown">Select Tenant</label>
+      <div class="col-md-4">
+        <select id="peopleDropdown" name="peopleDropdown" class="form-control">
+        </select>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="name">Bill Name</label>  
+      <div class="col-md-4">
+      <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="desc">Bill Description</label>  
+      <div class="col-md-4">
+      <input id="desc" name="desc" type="text" placeholder="" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="amount">Bill Amount</label>  
+      <div class="col-md-4">
+      <input id="amount" name="amount" type="text" placeholder="" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="duedate">Payment Date</label>  
+      <div class="col-md-4">
+      <input id="duedate" name="duedate" type="date" placeholder="" class="form-control input-md" required="true">
+        
+      </div>
+    </div>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="singlebutton"></label>
+    <div class="col-md-4">
+        <input type="submit" value="Add Bill">
+    </div>
+  </div>
+
+    </fieldset>
+  </form>
+</div>

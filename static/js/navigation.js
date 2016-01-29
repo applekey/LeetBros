@@ -18,6 +18,11 @@ function loadViewTenant(){
   $('#page-wrapper').load('shtml/viewTenant.html',loadTenants);
 }
 
+function loadAddBill(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/addBill.html', populateTenants);
+}
+
 ///****       **      **      **//
 
 // user to remap names
@@ -69,6 +74,17 @@ function insertTableElements(data)
 
 function loadTenants(){
   $.get( "/functions/viewTenants", insertTableElements)
+};
+
+function populateTenants() {
+  $.getJSON( "/functions/viewTenants", populateTenantsDropdown)
+};
+
+function populateTenantsDropdown(data) {
+  for(i=0; i<data.length; i++)
+  {
+    $("#peopleDropdown").append('<option value="' + data[i].people_email + '">' + data[i].people_name + '</option>')
+  }
 };
 
 /////additional functionaity

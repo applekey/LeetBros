@@ -8,6 +8,8 @@ sys.path.append(dbDirectory)
 
 from emailAdapter import *
 from peopleAdapter import *
+from billAdapter import *
+from owedAdapter import *
 from peopleContainer import *
 from dbManager import *
 
@@ -54,6 +56,39 @@ def addTenant():
     else:
         return 'Error'
 
+@route('/addBill', method='POST')
+def addBill():
+    
+    print request.forms.get('peopleDropdown')
+
+    data = {
+        'name' : request.forms.get('name'),
+        'desc' : request.forms.get('desc'),
+        'amt' : request.forms.get('amount'),
+        'date' : request.forms.get('duedate')
+    }
+
+    tenantemail = request.forms.get('peopleDropdown')
+
+    #TODO: USE CONNECTION POOLING
+
+    (user, pw, host, db) = dbManager.getDBConfig()
+    billAdap = billAdapter(user, pw, host, db)
+    billAdap.connect()
+    billId = billAdap.insertBill(data)
+    billAdap.disconnect()
+
+    pplAdapter = peopleAdapter(user, pw, host, db)
+    pplAdapter.connect()
+    personId = pplAdapter.queryClientByEmail(tenantemail)['people_id']
+    pplAdapter.disconnect()
+
+    owedAdap = owedAdapter(user, pw, host, db)
+    owedAdap.connect()
+    owedAdap.insertOwed(personId, billId)
+    owedAdap.disconnect()
+
+    return 'done'
 
 @route('/functions/<function>')
 def server_static(function):
