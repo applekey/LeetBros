@@ -2,18 +2,6 @@ from dbAdapter import *
 from peopleContainer import *
 
 class peopleAdapter(dbAdapter):
-
-    def __simpleQueryRunner(self, query):
-        result = []
-        cursor = self.connection.cursor()
-        cursor.execute(query)
-        row = cursor.fetchone()
-        while row is not None:
-            result.append(dict(zip(cursor.column_names, row)))
-            row = cursor.fetchone()
-        cursor.close()
-        return result
-
     def createClient(self, clientContainer):
         cursor = None
         clientData = (clientContainer.name,clientContainer.email)
@@ -35,7 +23,7 @@ class peopleAdapter(dbAdapter):
 
     def queryClients(self):
         query = ("SELECT people_name,people_email FROM people_tbl;")
-        results = self.__simpleQueryRunner(query)
+        results = self.simpleQueryRunner(query)
         clientResults = []
         for result in results:
             container = peopleContainer()
@@ -43,6 +31,7 @@ class peopleAdapter(dbAdapter):
             clientResults.append(container)
         result = peopleContainer.seralizeToJsonList(clientResults)
         return result
+
     def deleteClient(self,clients):
         try:
             cursor = self.connection.cursor()
@@ -61,16 +50,8 @@ class peopleAdapter(dbAdapter):
 
     def queryClientByEmail(self, email):
         query = ("SELECT * FROM people_tbl WHERE people_email='{0}';".format(email))
-        return self.__simpleQueryRunner(query)[0]
-
-    def queryOwed(self):
-        query = "SELECT * from owed_tbl where paid = false;"
-        return self.__simpleQueryRunner(query)
-
-    def queryPaid(self):
-        query = "SELECT * from owed_tbl where paid = true;"
-        return self.__simpleQueryRunner(query)
+        return self.simpleQueryRunner(query)[0]
 
     def queryUnpaidBills(self):
         query = "SELECT * from unpaidBills;"
-        return self.__simpleQueryRunner(query)
+        return self.simpleQueryRunner(query)

@@ -20,3 +20,11 @@ class owedAdapter(dbAdapter):
         finally:
             if cursor != None:
                 cursor.close()
+
+    def queryOwed(self):
+        query = "SELECT * from owed_tbl;"
+        return self.simpleQueryRunner(query)
+
+    def queryPaid(self):
+        query = "SELECT * from owed_tbl where paid = true;"
+        return self.simpleQueryRunner(query)

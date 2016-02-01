@@ -5,6 +5,7 @@
 *.swo
 .viminfo
 .ssh
+<<<<<<< HEAD
 .bash_history
 .mysql_history
 .viminfo
