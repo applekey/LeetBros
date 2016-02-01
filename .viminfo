@@ -27,31 +27,36 @@
 
 # Registers:
 ""1	LINE	0
-	<<<<<<< HEAD
+	>>>>>>> 11935f7aaa4872dae00129b0c837b72b716fbb87
 "2	LINE	0
 	=======
 "3	LINE	0
-	>>>>>>> e50b3b73f0d9c12ca41bb39b1a2780633ffbf02e
+	<<<<<<< HEAD
 "4	LINE	0
-	
+	=======
 "5	LINE	0
+	>>>>>>> e50b3b73f0d9c12ca41bb39b1a2780633ffbf02e
+"6	LINE	0
+	
+"7	LINE	0
 	        paslais
 "-	CHAR	0
 	dbDi
 
 # File marks:
-'0  10  7  ~/.gitignore
-'1  7  3  ~/.gitignore
-'2  6  7  ~/.gitignore
-'3  1  33  ~/.git/rebase-merge/git-rebase-todo
-'4  49  4  ~/db/peopleAdapter.py
-'5  31  29  ~/db/peopleAdapter.py
-'6  1  0  ~/db/createPeople.sql
-'7  32  27  ~/routes.py
-'8  32  1  ~/db/dbAdapter.py
-'9  8  13  ~/test.py
+'0  11  0  ~/.gitignore
+'1  10  7  ~/.gitignore
+'2  7  3  ~/.gitignore
+'3  6  7  ~/.gitignore
+'4  1  33  ~/.git/rebase-merge/git-rebase-todo
+'5  49  4  ~/db/peopleAdapter.py
+'6  31  29  ~/db/peopleAdapter.py
+'7  1  0  ~/db/createPeople.sql
+'8  32  27  ~/routes.py
+'9  32  1  ~/db/dbAdapter.py
 
 # Jumplist (newest first):
+-'  11  0  ~/.gitignore
 -'  10  7  ~/.gitignore
 -'  7  3  ~/.gitignore
 -'  6  7  ~/.gitignore
@@ -149,20 +154,20 @@
 -'  1  0  ~/test.py
 -'  1  0  ~/mysite/.git/MERGE_MSG
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
 
 # History of marks within files (newest to oldest):
 
 > ~/.gitignore
-	"	10	7
+	"	11	0
 	^	10	8
-	.	10	0
+	.	12	0
 	+	6	8
 	+	11	0
 	+	7	3
 	+	8	0
 	+	9	0
 	+	10	0
+	+	12	0
 
 > ~/.git/rebase-merge/git-rebase-todo
 	"	1	33
