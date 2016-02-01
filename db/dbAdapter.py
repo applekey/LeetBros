@@ -20,14 +20,18 @@ class dbAdapter:
                               host=self.host,
                               database=self.database)
                               #connector.connect(**config)
-    def query(self,query, vars):
-        raise Exception('Not implemented')
-# cursor.execute(query, (hire_start, hire_end))
-#
-# for (first_name, last_name, hire_date) in cursor:
-#   print("{}, {} was hired on {:%d %b %Y}".format(
-#     last_name, first_name, hire_date))
-#     cursor.close()
+
+    def simpleQueryRunner(self, query):
+        result = []
+        cursor = self.connection.cursor()
+        cursor.execute(query)
+        row = cursor.fetchone()
+        while row is not None:
+            result.append(dict(zip(cursor.column_names, row)))
+            row = cursor.fetchone()
+        cursor.close()
+        return result
+
 
     def disconnect(self):
         self.connection.close()

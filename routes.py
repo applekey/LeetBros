@@ -58,7 +58,7 @@ def addTenant():
 
 @route('/addBill', method='POST')
 def addBill():
-    
+
     print request.forms.get('peopleDropdown')
 
     data = {
@@ -105,5 +105,17 @@ def server_static(function):
         pplAdapter.connect()
         results = pplAdapter.queryClients()
         pplAdapter.disconnect()
+
+        return json.dumps(results)
+
+    if function == 'viewBill':
+        (username,password,host,database) = dbManager.getDBConfig()
+        billAdap =billAdapter(username,password,host,database)
+
+        billAdap.connect()
+        results = billAdap.queryBills()
+        billAdap.disconnect()
+
+        print results
 
         return json.dumps(results)
