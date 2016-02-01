@@ -400,3 +400,20 @@ git branch
 git checkout -b vlocal
 git branch
 ls
+git pull 
+git pull vchen master
+git status
+cat .gitignore 
+vim .gitignore
+mkdir .ssh
+cd .ssh
+ls
+cat id_rsa
+cat id_rsa.pub 
+cd ..
+git pull vchen master
+git stauts
+git status
+git add .gitignore
+git commit -m "git ignore"
+screen
