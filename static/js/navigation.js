@@ -28,6 +28,10 @@ function loadViewBill(){
   $('#page-wrapper').load('shtml/viewBills.html', loadBills);
 }
 
+function loadViewStart(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/startPanel.html');
+}
 ///****       **      **      **//
 
 // user to remap names
