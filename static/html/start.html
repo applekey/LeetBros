@@ -107,7 +107,7 @@
                   <div class="row">
                       <div class="col-lg-12">
 
-                        Wait
+                        Loading...
                       </div>
                       <!-- /.col-lg-12 -->
                   </div>
@@ -126,6 +126,15 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="template/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
+    <script>
+        function loadViewStart(){
+            $('#page-wrapper').empty();
+            $('#page-wrapper').load('shtml/startPanel.html');
+        }
+        // this is the main page !!! hack hack hack
+        loadViewStart()
+    </script>
+
     <!-- Metis Menu Plugin JavaScript -->
     <script src="template/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
@@ -138,9 +147,8 @@
     <script src="js/navigation.js"></script>
     <!-- <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script> -->
 
-    <script>
-      loadViewStart();
-    </script>
+
+
 
 </body>
 
