@@ -417,3 +417,12 @@ git status
 git add .gitignore
 git commit -m "git ignore"
 screen
+git status
+git add .
+git commit -m "html"
+git push vchen master
+ssh-copy-id applekey@ssh.pythonanywhere.com
+py
+exit
+py
+exit

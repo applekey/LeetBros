@@ -57,6 +57,7 @@
 
 # Jumplist (newest first):
 -'  12  12  ~/.gitignore
+-'  13  12  ~/.gitignore
 -'  11  0  ~/.gitignore
 -'  10  7  ~/.gitignore
 -'  7  3  ~/.gitignore
@@ -152,15 +153,12 @@
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
 -'  8  13  ~/test.py
 -'  3  16  ~/test.py
--'  1  0  ~/test.py
--'  1  0  ~/mysite/.git/MERGE_MSG
 
 # History of marks within files (newest to oldest):
 
 > ~/.gitignore
 	"	12	12
-	^	12	13
-	.	12	0
+	.	13	0
 	+	6	8
 	+	11	0
 	+	7	3
@@ -169,6 +167,7 @@
 	+	10	0
 	+	13	0
 	+	12	0
+	+	13	0
 
 > ~/.git/rebase-merge/git-rebase-todo
 	"	1	33

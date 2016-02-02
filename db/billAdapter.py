@@ -21,5 +21,5 @@ class billAdapter(dbAdapter):
                 cursor.close()
 
     def queryBills(self):
-        query = "SELECT bill_name, bill_description, bill_amount, DATE_FORMAT(bill_date, '%d %m %Y') as bill_date from bill_tbl;"
+        query = "SELECT bill_name, bill_description, bill_amount, DATE_FORMAT(bill_date, '%d/%m/%Y') as bill_date from bill_tbl;"
         return self.simpleQueryRunner(query)
