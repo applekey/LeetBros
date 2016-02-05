@@ -12,9 +12,10 @@
 
 # Command Line History (newest to oldest):
 :x
+:wq
 :q!
-:q
 :w
+:q
 
 # Search String History (newest to oldest):
 ? )
@@ -44,18 +45,26 @@
 	dbDi
 
 # File marks:
-'0  12  12  ~/.gitignore
-'1  11  0  ~/.gitignore
-'2  10  7  ~/.gitignore
-'3  7  3  ~/.gitignore
-'4  6  7  ~/.gitignore
-'5  1  33  ~/.git/rebase-merge/git-rebase-todo
-'6  49  4  ~/db/peopleAdapter.py
-'7  31  29  ~/db/peopleAdapter.py
-'8  1  0  ~/db/createPeople.sql
-'9  32  27  ~/routes.py
+'0  1  6  ~/file/blah.txt
+'1  2  0  ~/crontab.txt
+'2  39  19  ~/attachments/engine.py
+'3  1  0  ~/engine.py
+'4  6  29  ~/myNote.py
+'5  12  12  ~/.gitignore
+'6  11  0  ~/.gitignore
+'7  10  7  ~/.gitignore
+'8  7  3  ~/.gitignore
+'9  6  7  ~/.gitignore
 
 # Jumplist (newest first):
+-'  1  6  ~/file/blah.txt
+-'  2  0  ~/crontab.txt
+-'  1  0  ~/crontab.txt
+-'  39  19  ~/attachments/engine.py
+-'  1  0  ~/attachments/engine.py
+-'  1  0  ~/engine.py
+-'  6  29  ~/myNote.py
+-'  1  0  ~/myNote.py
 -'  12  12  ~/.gitignore
 -'  13  12  ~/.gitignore
 -'  11  0  ~/.gitignore
@@ -146,15 +155,37 @@
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
 -'  1  0  ~/mysite/.git/MERGE_MSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/MERGE_MSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  8  13  ~/test.py
--'  3  16  ~/test.py
 
 # History of marks within files (newest to oldest):
+
+> ~/file/blah.txt
+	"	1	6
+	^	1	7
+	.	1	6
+	+	1	6
+
+> ~/crontab.txt
+	"	2	0
+	^	2	0
+	.	1	39
+	+	1	39
+
+> ~/attachments/engine.py
+	"	39	19
+	^	39	20
+	.	39	19
+	+	36	15
+	+	37	54
+	+	39	19
+
+> ~/engine.py
+	"	1	0
+
+> ~/myNote.py
+	"	6	29
+	^	14	39
+	.	14	38
+	+	14	38
 
 > ~/.gitignore
 	"	12	12

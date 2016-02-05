@@ -426,3 +426,23 @@ py
 exit
 py
 exit
+ls
+git stauts
+git status
+git add .
+git commit -m "html"
+git push vchen master
+py
+git pull
+git pull vchen master
+git status
+git status
+ls
+git status
+vim .gitignore 
+git dd
+git add .
+git commit -m "formating "
+git push vchen master
+ls
+vim myNote.py
