@@ -75,12 +75,12 @@ def addBill():
     tenantemail = request.forms.get('peopleDropdown')
 
     ## hack hack
-    data = request.files.data
-    filename = data.filename
-    path = '/home/applekey/file'
-    fullPath = os.path.join(path,filename)
-    with open(fullPath,'w') as open_file:
-        open_file.write(data.file.read())
+    for file in request.files:
+        filObj = request.files[file]
+        filename = filObj.filename
+        path = './files'
+        fullPath = os.path.join(path,filename)
+        filObj.save(fullPath,overwrite=True)
 
     #TODO: USE CONNECTION POOLING
 
