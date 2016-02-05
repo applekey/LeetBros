@@ -1,4 +1,4 @@
-create View unpaidBills as
+create or replace View unpaidBills as
 (
     select 
         pt.people_name as personName, 
@@ -10,5 +10,5 @@ create View unpaidBills as
     from owed_tbl ot 
     join people_tbl pt on ot.owed_people_id = pt.people_id 
     join bill_tbl bt on ot.owed_bill_id = bt.bill_id 
-    where ot.paid = false and bt.dueDate <= curdate() 
+    where ot.paid = false and bt.bill_date <= curdate() 
 );

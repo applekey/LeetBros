@@ -5,26 +5,23 @@ sys.path.append(dbDirectory)
 
 from peopleAdapter import *
 from emailAdapter import *
+from dbManager import *
 
 class Engine:
 
-    __username = 'shek'
-    __password = ''
-    __host = "127.0.0.1"
-    __database = 'shayak'
-
-    __dbAdapter = peopleAdapter(__username, __password, __host, __database)
-    __emailAdapter = emailAdapter('dotaspider007@gmail.com', 'dotapass')
+    __emailAdapter = emailAdapter('will.reminder@gmail.com', 'vancouver!@#')
 
     def __init__(self):
-        self.__dbAdapter.connect()
+        (username,password,host,database) = dbManager.getDBConfig()
+        self.__pplAdapter = peopleAdapter(username,password,host,database)
+        self.__pplAdapter.connect()
 
     def __del__(self):
-        self.__dbAdapter.disconnect()
+        self.__pplAdapter.disconnect()
 
     def Run(self):
         # iterate through owed table and send emails
-        bills = self.__dbAdapter.queryUnpaidBills()
+        bills = self.__pplAdapter.queryUnpaidBills()
         for bill in bills:
             params = {
                 'bill_link': 'applekey.pythonanywhere.com',
