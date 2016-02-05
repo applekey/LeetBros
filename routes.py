@@ -29,6 +29,10 @@ def server_static(filename):
 def server_static(filepath):
     return static_file(filepath, root='static/js/')
 
+@route('/file/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='file/')
+
 @route('/template/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, root='static/startbootstrap-sb-admin-2-gh-pages/')
