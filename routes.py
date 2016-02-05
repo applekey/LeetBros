@@ -74,6 +74,14 @@ def addBill():
 
     tenantemail = request.forms.get('peopleDropdown')
 
+    ## hack hack
+    data = request.files.data
+    filename = data.filename
+    path = '/home/applekey/file'
+    fullPath = os.path.join(path,filename)
+    with open(fullPath,'w') as open_file:
+        open_file.write(data.file.read())
+
     #TODO: USE CONNECTION POOLING
 
     (user, pw, host, db) = dbManager.getDBConfig()
