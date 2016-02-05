@@ -33,7 +33,10 @@ class Engine:
                 'email': bill['email'],
                 'html': self.getEmailHtml(params)
             }
-            self.__emailAdapter.sendHtmlMail(data)
+            try:
+                self.__emailAdapter.sendHtmlMail(data)
+            except:
+                pass
 
     def getEmailHtml(self, data):
         return """\
