@@ -29,9 +29,9 @@ def server_static(filename):
 def server_static(filepath):
     return static_file(filepath, root='static/js/')
 
-@route('/file/<filepath:path>')
+@route('/files/<filepath:path>')
 def server_static(filepath):
-    return static_file(filepath, root='file/')
+    return static_file(filepath, root='files/')
 
 @route('/template/<filepath:path>')
 def server_static(filepath):
@@ -74,13 +74,13 @@ def addBill():
 
     tenantemail = request.forms.get('peopleDropdown')
 
-    # ## hack hack
-    # data = request.forms.files.data
-    # filename = data.filename
-    # path = '/home/applekey/file'
-    # fullPath = os.path.join(path,filename)
-    # with open(fullPath,'w') as open_file:
-    #     open_file.write(data.file.read())
+    ## hack hack
+    for file in request.files:
+        filObj = request.files[file]
+        filename = filObj.filename
+        path = './files'
+        fullPath = os.path.join(path,filename)
+        filObj.save(fullPath,overwrite=True)
 
     #TODO: USE CONNECTION POOLING
 
