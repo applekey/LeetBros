@@ -21,7 +21,7 @@ function onGoogleSignIn(googleUser) {
             'email' : profile.getEmail()
         },
         complete : function(response) {
-            $.ajax('/start')
+            window.location = "/start"
         }
     });
 }
