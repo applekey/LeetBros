@@ -8,6 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="google-signin-client_id" content="197189255793-bl78f1gs26vel4ddt228prhu2156t60s.apps.googleusercontent.com">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="text/javascript" src="js/login_scripts.js"></script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
@@ -56,8 +63,11 @@
               </div>
               <!-- /.navbar-header -->
 
-              <ul class="nav navbar-top-links navbar-right">
-
+              <ul class="nav navbar-top-links navbar-left">
+                  <div id="welcome-user"></div>
+                  <div id="my-signout2" class="g-signout2">
+                    <a href="#" onclick="googleSignOut();">Sign Out</a>
+                  </div>
               </ul>
               <!-- /.navbar-top-links -->
               <div class="navbar-default sidebar" role="navigation">

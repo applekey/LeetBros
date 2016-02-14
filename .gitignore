@@ -1,12 +1,10 @@
 *.pyc
 .DS_Store
 *~
+session/*
 *.swp
 *.swo
 .viminfo
 .ssh
-<<<<<<< HEAD
 .bash_history
 .mysql_history
-.viminfo
-.bash_history
