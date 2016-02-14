@@ -11,11 +11,11 @@
 ~Msle0~/)
 
 # Command Line History (newest to oldest):
-:x
 :wq
 :q!
-:w
 :q
+:w
+:x
 
 # Search String History (newest to oldest):
 ? )
@@ -28,35 +28,59 @@
 
 # Registers:
 ""1	LINE	0
-	>>>>>>> 11935f7aaa4872dae00129b0c837b72b716fbb87
+	    
 "2	LINE	0
-	=======
+	    print request.path
 "3	LINE	0
-	<<<<<<< HEAD
-"4	LINE	0
-	=======
-"5	LINE	0
-	>>>>>>> e50b3b73f0d9c12ca41bb39b1a2780633ffbf02e
-"6	LINE	0
 	
+"4	LINE	0
+	@hook('after-request'):
+	def postProcess();
+	    response.headers['Access-Control-Allow-Origin'] = '*'
+"5	LINE	0
+	    console.log(profile.getEmail())
+"6	LINE	0
+	    alert(profile.getEmail())
 "7	LINE	0
-	        paslais
+	>>>>>>> 11935f7aaa4872dae00129b0c837b72b716fbb87
+"8	LINE	0
+	=======
+"9	LINE	0
+	<<<<<<< HEAD
 "-	CHAR	0
 	dbDi
 
 # File marks:
-'0  1  6  ~/file/blah.txt
-'1  2  0  ~/crontab.txt
-'2  39  19  ~/attachments/engine.py
-'3  1  0  ~/engine.py
-'4  6  29  ~/myNote.py
-'5  12  12  ~/.gitignore
-'6  11  0  ~/.gitignore
-'7  10  7  ~/.gitignore
-'8  7  3  ~/.gitignore
-'9  6  7  ~/.gitignore
+'0  4  7  ~/.gitignore
+'1  21  42  ~/bottle_app.py
+'2  17  39  ~/bottle_app.py
+'3  14  0  ~/bottle_app.py
+'4  3  37  ~/bottle_app.py
+'5  37  4  ~/routes.py
+'6  16  0  ~/bottle_app.py
+'7  30  4  ~/routes.py
+'8  19  0  ~/bottle_app.py
+'9  31  4  ~/routes.py
 
 # Jumplist (newest first):
+-'  4  7  ~/.gitignore
+-'  1  0  ~/.gitignore
+-'  21  42  ~/bottle_app.py
+-'  17  39  ~/bottle_app.py
+-'  14  0  ~/bottle_app.py
+-'  3  37  ~/bottle_app.py
+-'  16  0  ~/bottle_app.py
+-'  37  4  ~/routes.py
+-'  30  4  ~/routes.py
+-'  19  0  ~/bottle_app.py
+-'  31  4  ~/routes.py
+-'  1  0  ~/bottle_app.py
+-'  32  0  ~/routes.py
+-'  25  19  ~/routes.py
+-'  33  27  ~/routes.py
+-'  13  4  ~/static/js/login_scripts.js
+-'  14  17  ~/static/js/login_scripts.js
+-'  1  0  ~/static/js/login_scripts.js
 -'  1  6  ~/file/blah.txt
 -'  2  0  ~/crontab.txt
 -'  1  0  ~/crontab.txt
@@ -65,19 +89,17 @@
 -'  1  0  ~/engine.py
 -'  6  29  ~/myNote.py
 -'  1  0  ~/myNote.py
--'  12  12  ~/.gitignore
 -'  13  12  ~/.gitignore
--'  11  0  ~/.gitignore
--'  10  7  ~/.gitignore
--'  7  3  ~/.gitignore
--'  6  7  ~/.gitignore
--'  1  0  ~/.gitignore
+-'  14  12  ~/.gitignore
+-'  12  0  ~/.gitignore
+-'  11  7  ~/.gitignore
+-'  8  3  ~/.gitignore
+-'  7  7  ~/.gitignore
 -'  1  33  ~/.git/rebase-merge/git-rebase-todo
 -'  49  4  ~/db/peopleAdapter.py
 -'  31  15  ~/db/peopleAdapter.py
 -'  1  0  ~/db/peopleAdapter.py
 -'  1  0  ~/db/createPeople.sql
--'  32  27  ~/routes.py
 -'  1  0  ~/routes.py
 -'  32  1  ~/db/dbAdapter.py
 -'  1  0  ~/db/dbAdapter.py
@@ -139,24 +161,63 @@
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
 -'  1  0  ~/mysite/.git/MERGE_MSG
 -'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/MERGE_MSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  32  1  ~/db/dbAdapter.py
--'  1  0  ~/db/dbAdapter.py
--'  8  13  ~/test.py
--'  3  16  ~/test.py
--'  1  0  ~/test.py
--'  1  0  ~/mysite/.git/MERGE_MSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/MERGE_MSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/COMMIT_EDITMSG
--'  1  0  ~/mysite/.git/MERGE_MSG
 
 # History of marks within files (newest to oldest):
+
+> ~/.gitignore
+	"	4	7
+	^	4	8
+	.	4	7
+	+	7	8
+	+	12	0
+	+	8	3
+	+	9	0
+	+	10	0
+	+	11	0
+	+	14	0
+	+	13	0
+	+	14	0
+	+	4	7
+
+> ~/bottle_app.py
+	"	21	42
+	^	17	40
+	.	17	39
+	+	17	10
+	+	21	18
+	+	19	0
+	+	21	0
+	+	3	37
+	+	21	0
+	+	19	0
+	+	17	0
+	+	19	0
+	+	17	39
+
+> ~/routes.py
+	"	37	4
+	^	31	5
+	.	31	4
+	+	32	31
+	+	33	27
+	+	25	24
+	+	25	11
+	+	25	0
+	+	31	132
+	+	30	3
+	+	31	4
+	+	32	4
+	+	32	0
+	+	29	4
+	+	30	4
+	+	31	4
+
+> ~/static/js/login_scripts.js
+	"	13	4
+	.	13	0
+	+	13	4
+	+	13	0
+	+	13	0
 
 > ~/file/blah.txt
 	"	1	6
@@ -186,19 +247,6 @@
 	^	14	39
 	.	14	38
 	+	14	38
-
-> ~/.gitignore
-	"	12	12
-	.	13	0
-	+	6	8
-	+	11	0
-	+	7	3
-	+	8	0
-	+	9	0
-	+	10	0
-	+	13	0
-	+	12	0
-	+	13	0
 
 > ~/.git/rebase-merge/git-rebase-todo
 	"	1	33
@@ -243,13 +291,6 @@
 
 > ~/db/createPeople.sql
 	"	1	0
-
-> ~/routes.py
-	"	32	27
-	^	32	28
-	.	32	27
-	+	31	31
-	+	32	27
 
 > ~/db/dbAdapter.py
 	"	32	1

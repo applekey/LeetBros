@@ -1,6 +1,6 @@
 
 # A very simple Bottle Hello World app for you to get started with...
-from bottle import default_app,run, app
+from bottle import default_app,run,app
 ## custom imports
 from routes import *
 
@@ -14,8 +14,8 @@ session_opts = {
     'session.auto': True
 }
 
-app = SessionMiddleware(app(), session_opts)
+application = SessionMiddleware(default_app(), session_opts)
 
 #application = default_app()
 
-run(app=app)#, reloader=True,debug=True, host='localhost', port=8080)
+#run(app=application)#, reloader=True,debug=True, host='localhost', port=8080)
