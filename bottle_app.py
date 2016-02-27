@@ -16,6 +16,5 @@ session_opts = {
 
 application = SessionMiddleware(default_app(), session_opts)
 
-#application = default_app()
-
-#run(app=application)#, reloader=True,debug=True, host='localhost', port=8080)
+if __name__ == "__main__":
+	run(app=application, reloader=True,debug=True, host='localhost', port=8080)

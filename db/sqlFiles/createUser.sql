@@ -1,0 +1,8 @@
+CREATE TABLE user_tbl(
+   UserID INT AUTO_INCREMENT NOT NULL,
+   LoginName NVARCHAR(40) NOT NULL,
+   PasswordHash BINARY(40) NOT NULL,
+   FirstName NVARCHAR(40), 
+   LastName NVARCHAR(40),
+   CONSTRAINT PK_User_UserID PRIMARY KEY (UserID )
+);
