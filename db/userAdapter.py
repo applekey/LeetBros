@@ -9,7 +9,10 @@ class userAdapter(dbAdapter):
             args = (user, password, 0)
             result_args = cursor.callproc('uspIfUserExists',args)
 
-            return result_args[2]
+            if result_args[2] == -1:
+                return False
+            else:
+                return True
         except Exception, e:
             #log this failure
             print "userAdapter queryUser: " + str(e)

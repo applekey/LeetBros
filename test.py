@@ -6,6 +6,7 @@ sys.path.append(emailDir)
 
 from peopleAdapter import *
 from emailAdapter import *
+from userAdapter import *
 from engine import *
 
 
@@ -27,9 +28,10 @@ database = 'housing'
 # engine = Engine()
 # engine.Run()
 
-adapter = peopleAdapter(username,password,host,database)
+adapter = userAdapter(username,password,host,database)
 adapter.connect()
-print adapter.queryClients()
+print adapter.queryUser('abc','cde')
+
 # print adapter.queryBill()
 # print adapter.queryOwed()
 # print adapter.queryUnpaidBills()

@@ -18,10 +18,17 @@ from billAdapter import *
 from owedAdapter import *
 from peopleContainer import *
 from dbManager import *
+from userAdapter import *
 
 def updateuser(clientid):
-    pass
+    (username,password,host,database) = dbManager.getDBConfig()
 
+    userExist = False
+    usrAdapter =userAdapter(username,password,host,database)
+    usrAdapter.connect()
+    #userExist = usrAdapter.queryUser(username,password)
+    usrAdapter.disconnect()
+    
 @hook('before_request')
 def authenticate():
     usersid = None
