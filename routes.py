@@ -20,15 +20,28 @@ from peopleContainer import *
 from dbManager import *
 from userAdapter import *
 
+def checkIfUserExists(clientId):
+    return True
+    (username,password,host,database) = dbManager.getDBConfig()
+
+    userExist = False
+    usrAdapter =userAdapter(username,password,host,database)
+    usrAdapter.connect()
+    userExist = usrAdapter.queryUser(username,password)
+    usrAdapter.disconnect()
+    return userExist
+
+
 def updateuser(clientid):
     (username,password,host,database) = dbManager.getDBConfig()
 
     userExist = False
     usrAdapter =userAdapter(username,password,host,database)
     usrAdapter.connect()
-    #userExist = usrAdapter.queryUser(username,password)
+    userExist = usrAdapter.queryUser(username,password)
     usrAdapter.disconnect()
-    
+    return userExist
+
 @hook('before_request')
 def authenticate():
     usersid = None
@@ -67,14 +80,24 @@ def authenticate():
 
             clientid = idinfo['sub']
             sid = uuid.uuid4().urn[9:]
-            updateuser(clientid) # add user to DB if new
-            session = request.environ['beaker.session']
-            session['sessionId'] = sid
-            session.save()
-            response.set_cookie('sessionId', sid)
-            response.status = 200
-            print 'set cookie'
-            return response
+            userExist = checkIfUserExists(clientid) # add user to DB if new
+
+            if not userExist:
+                print 'user not exist'
+                response.status = 400
+                response.content_type = 'application/json'
+
+                ## todo proper error
+                return json.dumps({'error': 'Object already exists with that name'})
+            else:
+                print 'user exist'
+                session = request.environ['beaker.session']
+                session['sessionId'] = sid
+                session.save()
+                response.set_cookie('sessionId', sid)
+                response.status = 200
+                print 'set cookie'
+                return response
     print 'continuing'
 
 @route('/', method='GET')
@@ -87,6 +110,7 @@ def slash():
 @route('/login')
 @route('/login/')
 def hello_world():
+    response.status = 200
     return static_file('login.html', root='static/html')
 
 @route('/start',  method='GET')
@@ -111,6 +135,9 @@ def server_static(filepath):
 
 @route('/addTenant', method='POST')
 def addTenant():
+    session = request.environ['beaker.session']
+    print session['sessionId']
+
     tenantName = request.forms.get('tenantName')
     tenantEmail = request.forms.get('tenantEmail')
     #create container for db entry

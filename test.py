@@ -30,7 +30,7 @@ database = 'housing'
 
 adapter = userAdapter(username,password,host,database)
 adapter.connect()
-print adapter.queryUser('abc','cde')
+print adapter.queryUser('abcf','fcdefdsfafdsaf')
 
 # print adapter.queryBill()
 # print adapter.queryOwed()

@@ -20,6 +20,9 @@ function onGoogleSignIn(googleUser) {
             'email' : profile.getEmail()
         },
         complete : function(response) {
+            console.log('here')
+            console.log(response)
+
             window.location = "/start"
         }
     });
