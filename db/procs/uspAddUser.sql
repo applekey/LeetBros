@@ -4,15 +4,21 @@ DROP PROCEDURE  IF EXISTS uspAddUser;
 
 
 CREATE PROCEDURE uspAddUser (
-    IN pLogin NVARCHAR(50), 
-    IN pPassword NVARCHAR(40), 
-    IN pFirstName NVARCHAR(40), 
-    IN pLastName NVARCHAR(40))
+   IN email NVARCHAR(100),
+   IN loginName NVARCHAR(40),
+   IN password NVARCHAR(40),
+   IN firstName NVARCHAR(40), 
+   IN lastName NVARCHAR(40),
+   IN userType INT,
+   OUT userId varchar(36))
 
 BEGIN
-    INSERT INTO user_tbl (LoginName, PasswordHash, FirstName, LastName) VALUES(pLogin, SHA1(pPassword), pFirstName, pLastName);
+	SET @userId = UUID();
+    INSERT INTO User (UserId, Email, LoginName, PasswordHash, FirstName, LastName, UserType) 
+    VALUES (userId, email, loginName, SHA1(pPassword), firstName, lastName, userType);
 END $$
 
 DELIMITER ;
+
 
 
