@@ -15,3 +15,5 @@ from owedAdapter import *
 from peopleContainer import *
 from dbManager import *
 from userAdapter import *
+
+import AuthenticationManager

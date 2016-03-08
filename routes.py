@@ -1,92 +1,14 @@
 from bottle import route,static_file,post,request,response, hook, redirect
-from beaker.middleware import SessionMiddleware
-from oauth2client import client, crypt
-import sys,os,uuid
+import sys,os
 import json
-
-CLIENT_ID = "197189255793-bl78f1gs26vel4ddt228prhu2156t60s.apps.googleusercontent.com"
-#client secret: ObtDR11JgZpCBM30nylNC97h
 
 from include import *
 
-def checkIfUserExists(clientId):
-    return True
-    (username,password,host,database) = dbManager.getDBConfig()
-
-    userExist = False
-    usrAdapter =userAdapter(username,password,host,database)
-    usrAdapter.connect()
-    userExist = usrAdapter.queryUser(username,password)
-    usrAdapter.disconnect()
-    return userExist
-
-
-def updateuser(clientid):
-    (username,password,host,database) = dbManager.getDBConfig()
-
-    userExist = False
-    usrAdapter =userAdapter(username,password,host,database)
-    usrAdapter.connect()
-    userExist = usrAdapter.queryUser(username,password)
-    usrAdapter.disconnect()
-    return userExist
-
 @hook('before_request')
 def authenticate():
-    usersid = None
-    sid = None
-    #response.headers['Access-Control-Allow-Origin'] = '*'
-    #response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, OPTIONS'
-    #response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-
-    if 'sessionId' in request.cookies.keys():
-        usersid = request.cookies['sessionId']
-
-    if 'sessionId' in request.environ['beaker.session']:
-        sid = request.environ['beaker.session']['sessionId']
-
-    if "/login" in request.path \
-        or "/shtml/" in request.path \
-        or "/template/" in request.path \
-        or "/js/" in request.path \
-        or "/functions" in request.path:
-        print 'pass'
-        pass
-    elif (usersid is None or usersid != sid):
-        token = request.forms.get('auth_token')
-        if (token is None):
-            print 'redirect to login'
-            redirect('/login')
-        else:
-            idinfo = client.verify_id_token(token, CLIENT_ID)
-            # If multiple clients access the backend server:
-            # if idinfo['aud'] not in [ANDROID_CLIENT_ID, IOS_CLIENT_ID, WEB_CLIENT_ID]:
-            #     raise oauth2client.crypt.AppIdentityError("Unrecognized client.")
-            # if idinfo['iss'] not in ['accounts.google.com', 'https://accounts.google.com']:
-            #     raise oauth2client.crypt.AppIdentityError("Wrong issuer.")
-            # if idinfo['hd'] != APPS_DOMAIN_NAME:
-            #     raise oauth2client.crypt.AppIdentityError("Wrong hosted domain.")
-
-            clientid = idinfo['sub']
-            sid = uuid.uuid4().urn[9:]
-            userExist = checkIfUserExists(clientid) # add user to DB if new
-
-            if not userExist:
-                print 'user not exist'
-                response.status = 400
-                response.content_type = 'application/json'
-
-                ## todo proper error
-                return json.dumps({'error': 'Object already exists with that name'})
-            else:
-                print 'user exist'
-                session = request.environ['beaker.session']
-                session['sessionId'] = sid
-                session.save()
-                response.set_cookie('sessionId', sid)
-                response.status = 200
-                print 'set cookie'
-                return response
+    result = AuthenticationManager.authenticate(request, response)
+    if result == 1:
+        return response
     print 'continuing'
 
 @route('/', method='GET')
@@ -98,12 +20,12 @@ def slash():
 
 @route('/login')
 @route('/login/')
-def hello_world():
+def login():
     response.status = 200
     return static_file('login.html', root='static/html')
 
 @route('/start',  method='GET')
-def hello_world():
+def start():
     return static_file('start.html', root='static/html')
 
 @route('/shtml/<filename>')
@@ -212,3 +134,8 @@ def server_static(function):
         billAdap.disconnect()
 
         return json.dumps(results)
+
+@route('/test')
+def shit():
+    response.body = "test"
+    return response
