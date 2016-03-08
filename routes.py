@@ -7,18 +7,7 @@ import json
 CLIENT_ID = "197189255793-bl78f1gs26vel4ddt228prhu2156t60s.apps.googleusercontent.com"
 #client secret: ObtDR11JgZpCBM30nylNC97h
 
-attachmentDirectory = os.path.join(os.getcwd(),'attachments')
-dbDirectory = os.path.join(os.getcwd(),'db')
-sys.path.append(attachmentDirectory)
-sys.path.append(dbDirectory)
-
-from emailAdapter import *
-from peopleAdapter import *
-from billAdapter import *
-from owedAdapter import *
-from peopleContainer import *
-from dbManager import *
-from userAdapter import *
+from include import *
 
 def checkIfUserExists(clientId):
     return True
