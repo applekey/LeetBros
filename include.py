@@ -1,3 +1,5 @@
+import os, sys
+
 attachmentDirectory = os.path.join(os.getcwd(),'attachments')
 dbDirectory = os.path.join(os.getcwd(),'db')
 sys.path.append(attachmentDirectory)
@@ -13,3 +15,5 @@ from owedAdapter import *
 from peopleContainer import *
 from dbManager import *
 from userAdapter import *
+
+import AuthenticationManager

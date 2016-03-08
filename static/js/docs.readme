@@ -1,0 +1,7 @@
+user login flow:
+1. browser wants to visit '/'
+2. hook catches it and sees no sessionId and no token -> redirected to /login
+3. user has logged in with google and this time sends a manual ajax call to '/'
+4. hook catches it and sees no sessionId but yes token -> does the cookie shit sets a sessionId and sends the response back to browser
+5. the callback in the previous ajax call receives this, and does a call to '/start' 
+6. this time hook catches it, but it finds a sessionId, so it finally sends teh request thru to '/start'
