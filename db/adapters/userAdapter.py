@@ -20,17 +20,22 @@ class userAdapter(dbAdapter):
             if cursor != None:
                 cursor.close()
 
-    def insertUser(self, user, data):
+    def insertUser(self, data):
         cursor = None
         try:
+            uuid = None
             cursor = self.connection.cursor()
-            args = (data['email'], data['loginName'], data['passord'], data['firstName'], data['lastName'],data['userType'])
-            uuid = cursor.callproc('uspAddUser',args)
+            if cursor is not None:
+                args = (data['email'], data['loginName'], data['passord'], data['firstName'], data['lastName'],data['userType'])
+                print args
+                cursor.callproc('uspAddUser',args)
+            else:
+                print 'no cursor'
 
             return uuid
         except Exception, e:
             #log this failure
-            print "userAdapter queryUser: " + str(e)
+            print "userAdapter insertUser: " + str(e)
             return -1
         finally:
             if cursor != None:

@@ -8,12 +8,16 @@ sys.path.append(dbDirectory)
 adaptersDirectory = os.path.join(dbDirectory,'adapters')
 sys.path.append(adaptersDirectory)
 
-from emailAdapter import *
-from peopleAdapter import *
-from billAdapter import *
-from owedAdapter import *
-from peopleContainer import *
 from dbManager import *
 from userAdapter import *
-
+from billAdapter import *
 import AuthenticationManager
+
+# from emailAdapter import *
+# from peopleAdapter import *
+
+# from owedAdapter import *
+# from peopleContainer import *
+
+
+

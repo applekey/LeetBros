@@ -102,7 +102,7 @@ def addBill():
 
     owedAdap = owedAdapter(user, pw, host, db)
     owedAdap.connect()
-    owedAdap.insertOwed(personId, billId)
+    owedAdap.insertOwed(personIdc, billId)
     owedAdap.disconnect()
 
     return 'done'
