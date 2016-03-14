@@ -19,6 +19,9 @@ class userAdapter(dbAdapter):
         finally:
             if cursor != None:
                 cursor.close()
+    def queryUser(self):
+        query = "SELECT  * from User;"
+        return self.simpleQueryRunner(query)
 
     def insertUser(self, data):
         cursor = None
@@ -27,8 +30,8 @@ class userAdapter(dbAdapter):
             cursor = self.connection.cursor()
             if cursor is not None:
                 args = (data['email'], data['loginName'], data['passord'], data['firstName'], data['lastName'],data['userType'])
-                print args
                 cursor.callproc('uspAddUser',args)
+                self.connection.commit()
             else:
                 print 'no cursor'
 

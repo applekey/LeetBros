@@ -13,7 +13,7 @@ userAdapter = userAdapter(user, pw, host, db)
 userAdapter.connect()
 
 data = {
-        'email' : "gmail.com",
+        'email' : "gmail.fcom",
         'loginName' : "applekey",
         'passord' : "vancouver!@#",
         'firstName' : "Vincent",
@@ -21,8 +21,9 @@ data = {
         'userType': 3
     }
 
-userId = userAdapter.insertUser(data)
+#userId = userAdapter.queryUser()
+
+print userAdapter.insertUser(data)
 
 userAdapter.disconnect()
 
-print userId
