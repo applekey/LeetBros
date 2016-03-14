@@ -19,9 +19,13 @@ class userAdapter(dbAdapter):
         finally:
             if cursor != None:
                 cursor.close()
-    def queryUser(self):
-        query = "SELECT  * from User;"
+
+
+    def queryUserByEmail(self, email):
+        query = "SELECT  * from User where Email = '{0}';".format(email)
         return self.simpleQueryRunner(query)
+
+
 
     def insertUser(self, data):
         cursor = None

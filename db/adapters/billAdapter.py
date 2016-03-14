@@ -8,6 +8,7 @@ class billAdapter(dbAdapter):
             cursor = self.connection.cursor()
             args = (data['Name'], data['Description'], data['Amount'], data['DueDate'], data['BillIssuerId'], data['BillPayeeId'])
             cursor.callproc('uspCreateBill',args)
+            self.connection.commit()
            
         except Exception, e:
             #log this failure
@@ -18,5 +19,5 @@ class billAdapter(dbAdapter):
                 cursor.close()
    
     def queryBills(self):
-        query = "SELECT bill_name, bill_description, bill_amount, DATE_FORMAT(bill_date, '%d/%m/%Y') as bill_date from bill_tbl;"
+        query = "SELECT Name, Description, Amount, DATE_FORMAT(DueDate, '%d/%m/%Y') as DueDate from Bill;"
         return self.simpleQueryRunner(query)
