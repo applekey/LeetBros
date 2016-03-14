@@ -10,6 +10,7 @@ sys.path.append(adaptersDirectory)
 
 from dbManager import *
 from userAdapter import *
+
 from billAdapter import *
 import AuthenticationManager
 
@@ -18,5 +19,4 @@ import AuthenticationManager
 
 # from owedAdapter import *
 # from peopleContainer import *
-
 
