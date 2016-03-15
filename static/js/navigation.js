@@ -125,7 +125,7 @@ function populateTenants() {
 function populateTenantsDropdown(data) {
   for(i=0; i<data.length; i++)
   {
-    $("#peopleDropdown").append('<option value="' + data[i].people_email + '">' + data[i].people_name + '</option>')
+    $("#peopleDropdown").append('<option value="' + data[i].Email + '">' + data[i].FirstName +' : '+ data[i].Email + '</option>')
   }
 };
 

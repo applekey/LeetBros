@@ -21,11 +21,15 @@ class userAdapter(dbAdapter):
                 cursor.close()
 
 
-    def queryUserByEmail(self, email):
-        query = "SELECT  * from User where Email = '{0}';".format(email)
+    def queryUserByClientId(self, clientId):
+        query = "SELECT  Email, LoginName, FirstName,lastName from User where GroupId = '{0}';".format(clientId)
         return self.simpleQueryRunner(query)
-
-
+ 
+    def queryUser(self):
+        # only for debugging, remove 
+        query = "SELECT  Email, LoginName, FirstName,lastName from User;"
+        result = self.simpleQueryRunner(query)
+        return result
 
     def insertUser(self, data):
         cursor = None
@@ -33,7 +37,7 @@ class userAdapter(dbAdapter):
             uuid = None
             cursor = self.connection.cursor()
             if cursor is not None:
-                args = (data['email'], data['loginName'], data['passord'], data['firstName'], data['lastName'],data['userType'])
+                args = (data['email'], data['loginName'], data['passord'], data['firstName'], data['lastName'], data['groupId'],data['userType'])
                 cursor.callproc('uspAddUser',args)
                 self.connection.commit()
             else:

@@ -5,6 +5,7 @@ CREATE TABLE User(
    PasswordHash BINARY(40),
    FirstName NVARCHAR(40), 
    LastName NVARCHAR(40),
+   GroupId varchar(36) NOT NULL,
    UserType INT,
    CONSTRAINT PK_User_UserID PRIMARY KEY (UserID )
 );

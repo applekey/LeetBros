@@ -31,6 +31,16 @@ def updateuser(clientid):
     usrAdapter.disconnect()
     return userExist
 
+def GetCurrentUserId():
+    session = request.environ['beaker.session']
+    
+    sid = session['sessionId']
+    clientId = loginCachedData.getClientId(sid)
+    print clientid
+    return clientId
+    ## implement this
+    #return '76af103c-ea3e-11e5-a609-f7c4ee5bfee6'
+
 def authenticate(request, response):
     usersid = None
     sid = None
@@ -83,6 +93,9 @@ def authenticate(request, response):
                 session = request.environ['beaker.session']
                 session['sessionId'] = sid
                 session.save()
+
+                loginCachedData.setSID(sid,clientid)
+
                 response.set_cookie('sessionId', sid)
                 response.status = 200
                 print 'set cookie'

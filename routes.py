@@ -46,35 +46,50 @@ def server_static(filepath):
 
 @route('/addTenant', method='POST')
 def addTenant():
-    session = request.environ['beaker.session']
-    print session['sessionId']
+
+    ###########################################
+    # Note: this is used when a landlord adds a 
+    # tenant, not a tenant adds themselves....
+    #
+    ###########################################
+    currentUserId = AuthenticationManager.GetCurrentUserId()
+
 
     tenantName = request.forms.get('tenantName')
     tenantEmail = request.forms.get('tenantEmail')
-    #create container for db entry
-    container = peopleContainer((tenantName)
-                                ,(tenantEmail))
 
-    (username,password,host,database) = dbManager.getDBConfig()
+    data = {
+        'email' : tenantEmail,
+        'loginName' : 'defaultLoginName',
+        'passord' : 'defaultPassword',
+        'firstName' : tenantName,
+        'lastName': 'defualtLastName' ,
+        'groupId': currentUserId ,
+        'userType': 2 # 2 is phantom id
+    }
 
-    pplAdapter =peopleAdapter(username,password,host,database)
-    pplAdapter.connect()
-    successCreate = pplAdapter.createClient(container)
-    pplAdapter.disconnect()
+    usrAdapter =userAdapter(*dbManager.getDBConfig())
+    usrAdapter.connect()
+    successCreate = usrAdapter.insertUser(data)
+    usrAdapter.disconnect()
 
-    if successCreate == True:
-        return 'Done'
-    else:
-        return 'Error'
+    return 'done'
+    # if successCreate == True:
+    #     return 'Done'
+    # else:
+    #     return 'Error'
 
 @route('/addBill', method='POST')
 def addBill():
+    currentUserId = AuthenticationManager.GetCurrentUserId()
 
     data = {
-        'name' : request.forms.get('name'),
-        'desc' : request.forms.get('desc'),
-        'amt' : request.forms.get('amount'),
-        'date' : request.forms.get('duedate')
+        'Name' : request.forms.get('name'),
+        'Description' : request.forms.get('desc'),
+        'Amount' : request.forms.get('amount'),
+        'DueDate' : request.forms.get('duedate'),
+        'BillIssuerId': currentUserId ,
+        'BillPayeeId': currentUserId
     }
 
     tenantemail = request.forms.get('peopleDropdown')
@@ -89,21 +104,20 @@ def addBill():
 
     #TODO: USE CONNECTION POOLING
 
-    (user, pw, host, db) = dbManager.getDBConfig()
-    billAdap = billAdapter(user, pw, host, db)
+    billAdap = billAdapter(*dbManager.getDBConfig())
     billAdap.connect()
     billId = billAdap.insertBill(data)
     billAdap.disconnect()
 
-    pplAdapter = peopleAdapter(user, pw, host, db)
-    pplAdapter.connect()
-    personId = pplAdapter.queryClientByEmail(tenantemail)['people_id']
-    pplAdapter.disconnect()
+    # pplAdapter = peopleAdapter(user, pw, host, db)
+    # pplAdapter.connect()
+    # personId = pplAdapter.queryClientByEmail(tenantemail)['people_id']
+    # pplAdapter.disconnect()
 
-    owedAdap = owedAdapter(user, pw, host, db)
-    owedAdap.connect()
-    owedAdap.insertOwed(personIdc, billId)
-    owedAdap.disconnect()
+    # owedAdap = owedAdapter(user, pw, host, db)
+    # owedAdap.connect()
+    # owedAdap.insertOwed(personIdc, billId)
+    # owedAdap.disconnect()
 
     return 'done'
 
@@ -115,27 +129,21 @@ def server_static(function):
     #     attachments = emailad.listAttachments()
     #     emailad.disconnect()
     #     return attachments
+    clientId = AuthenticationManager.GetCurrentUserId()
+
     if function == 'viewTenants':
-        (username,password,host,database) = dbManager.getDBConfig()
-        pplAdapter =peopleAdapter(username,password,host,database)
+        usrAdapter =userAdapter(*dbManager.getDBConfig())
 
-        pplAdapter.connect()
-        results = pplAdapter.queryClients()
-        pplAdapter.disconnect()
-
+        usrAdapter.connect()
+        results = usrAdapter.queryUserByClientId(clientId)
+        usrAdapter.disconnect()
         return json.dumps(results)
 
     if function == 'viewBill':
-        (username,password,host,database) = dbManager.getDBConfig()
-        billAdap =billAdapter(username,password,host,database)
+        billAdap =billAdapter(*dbManager.getDBConfig())
 
         billAdap.connect()
-        results = billAdap.queryBills()
+        results = billAdap.queryBills(clientId)
         billAdap.disconnect()
 
         return json.dumps(results)
-
-@route('/test')
-def shit():
-    response.body = "test"
-    return response

@@ -2,9 +2,7 @@ from include import *
 import datetime
 ## bill tests
 def insertBillTest():
-	(user, pw, host, db) = dbManager.getDBConfig()
-	print (user, pw, host, db)
-	bAdapter = billAdapter(user, pw, host, db)
+	bAdapter = billAdapter(*dbManager.getDBConfig())
 
 	data = {
 			'Name': 'ef',
@@ -14,16 +12,15 @@ def insertBillTest():
 			'BillIssuerId':'6df8ca38-ea38-11e5-a609-f7c4ee5bfee6',
 			'BillPayeeId':'6df8ca38-ea38-11e5-a609-f7c4ee5bfee6'}
 	bAdapter.connect()
-	bAdapter.insertBill(data)
+	#bAdapter.insertBill(data)
+	print bAdapter.queryBills()
 	bAdapter.disconnect()	
 
-insertBillTest()
+#insertBillTest()
 
 def insertUserTest():
-	(user, pw, host, db) = dbManager.getDBConfig()
-	print (user, pw, host, db)
-	userAdapter = userAdapter(user, pw, host, db)
-	userAdapter.connect()
+	usrAdapter = userAdapter(*dbManager.getDBConfig())
+	usrAdapter.connect()
 
 	data = {
 	        'email' : "gmail.fcom",
@@ -31,12 +28,14 @@ def insertUserTest():
 	        'passord' : "vancouver!@#",
 	        'firstName' : "Vincent",
 	        'lastName': "Chen",
+	        'groupId': '76af103c-ea3e-11e5-a609-f7c4ee5bfee6',
 	        'userType': 3}
 	    	
 
-	print userAdapter.queryUserByEmail("gmail.fcom")
+	#print userAdapter.queryUserByEmail("gmail.fcom")
 
-	#print userAdapter.insertUser(data)
+	print usrAdapter.insertUser(data)
 
-	userAdapter.disconnect()
+	usrAdapter.disconnect()
+insertUserTest()
 

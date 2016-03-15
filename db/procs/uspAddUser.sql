@@ -9,11 +9,12 @@ CREATE PROCEDURE uspAddUser (
    IN password NVARCHAR(40),
    IN firstName NVARCHAR(40), 
    IN lastName NVARCHAR(40),
+   IN groupId varchar(36),
    IN userType INT)
 
 BEGIN
-  INSERT INTO housing.User (UserId, Email, LoginName, PasswordHash, FirstName, LastName, UserType) 
-  VALUES (UUID(), email, loginName, SHA1(password), firstName, lastName, userType);
+  INSERT INTO housing.User (UserId, Email, LoginName, PasswordHash, FirstName, LastName, GroupId, UserType) 
+  VALUES (UUID(), email, loginName, SHA1(password), firstName, lastName, groupId, userType);
 END $$
 
 DELIMITER ;
