@@ -35,4 +35,14 @@ class billAdapter(dbAdapter):
 
         return self.simpleQueryRunner(query)
 
+    def querryUpCommingBills(self, clientId = None):
+
+        query = "SELECT Name, Description, Amount, DATE_FORMAT(DueDate, '%d/%m/%Y') as DueDate from Bill where DueDate = '{0}';".format(format(str(datetime.datetime.now())))
+
+        if clientId != None:
+            # this is a user querry
+            querry = querry[:-1] # strip ';', will need a new one
+            query += "and BillIssuerId = '{0}';".format(clientId)
+
+        return self.simpleQueryRunner(query)
 
