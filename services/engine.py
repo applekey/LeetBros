@@ -1,11 +1,4 @@
-import sys,os,datetime
-dbDirectory = os.path.join(os.getcwd(),'db')
-
-sys.path.append(dbDirectory)
-
-from peopleAdapter import *
-from emailAdapter import *
-from dbManager import *
+import * from serviceInclude
 
 class Engine:
 
