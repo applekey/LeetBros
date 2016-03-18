@@ -1,0 +1,15 @@
+-- remove the following tables
+
+drop table if exists people_tbl;
+drop table if exists user_tbl;
+
+// tables
+source {dir} /home/applekey/Documents/LeetBros/db/tables/Bill_tbl.sql
+source {dir} /home/applekey/Documents/LeetBros/db/tables/User_tbl.sql
+
+// procs
+
+source /home/applekey/Documents/LeetBros/db/procs/uspAddUser.sql
+source /home/applekey/Documents/LeetBros/db/procs/uspCreateBill.sql
+source /home/applekey/Documents/LeetBros/db/procs/uspIfUserExists.sql
+
