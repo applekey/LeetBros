@@ -12,3 +12,8 @@ sys.path.append(adaptersDirectory)
 
 blDirectory = os.path.join(rootDir,'businessLogic')
 sys.path.append(blDirectory)
+
+from outstanding import *
+from dbManager import *
+from userAdapter import *
+from billAdapter import *

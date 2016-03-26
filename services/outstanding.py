@@ -1,13 +1,18 @@
-import * from serviceInclude
+from serviceInclude import *
+from outstanding import *
+from dbManager import *
+from userAdapter import *
+from billAdapter import *
 
 #inserts all pertinant dash info per user
-def InsertDashInfo(clientId, data):
+def GetDashInfo(clientId, data):
   ## bills due
-  oub = GetOutStandingBills()
-  upb = GetUpCommingBills()
+  oub = GetOutStandingBills('args')
+  upb = GetUpCommingBills('args')
+  ## For now just add this to temp table
+  ## Need to in the future need to figure out some caching
 
-
-  pass
+  return (oub,upb)
 
 
 def GetOutStandingBills(config):
@@ -16,7 +21,7 @@ def GetOutStandingBills(config):
   billAdap = billAdapter(*dbManager.getDBConfig())
   billAdap.connect()
 
-  pastDueBills = billAdapter.querryPastDueBills()
+  pastDueBills = billAdap.querryPastDueBills()
 
   billAdap.disconnect()
 
@@ -27,7 +32,7 @@ def GetUpCommingBills(config):
   billAdap = billAdapter(*dbManager.getDBConfig())
   billAdap.connect()
 
-  upCommingBills = billAdapter.querryUpCommingBills(config)
+  upCommingBills = billAdap.querryUpCommingBills()
 
   billAdap.disconnect()
 

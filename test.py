@@ -1,4 +1,8 @@
 from include import *
+attachmentDirectory = os.path.join(os.getcwd(),'services')
+sys.path.append(attachmentDirectory)
+from serviceInclude import *
+
 import datetime
 ## bill tests
 def insertBillTest():
@@ -37,5 +41,20 @@ def insertUserTest():
 	print usrAdapter.insertUser(data)
 
 	usrAdapter.disconnect()
-insertUserTest()
+#insertUserTest()
+
+def querryPastBillsTest():
+	bAdapter = billAdapter(*dbManager.getDBConfig())
+
+	bAdapter.connect()
+	#bAdapter.insertBill(data)
+	print bAdapter.querryUpCommingBills()
+	bAdapter.disconnect()
+	
+#querryPastBillsTest()
+
+def DashTest():
+	print GetDashInfo('blah','blah')
+
+print DashTest()
 

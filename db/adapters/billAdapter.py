@@ -1,5 +1,5 @@
 from dbAdapter import *
-
+from datetime import datetime, date, time
 class billAdapter(dbAdapter):
 
     def insertBill(self, data):
@@ -24,25 +24,35 @@ class billAdapter(dbAdapter):
         return self.simpleQueryRunner(query)
 
 
-    def querryPastDueBills(self, clientId = None):
+    def querryPastDueBills(self, billIssuerId = None, billPayeeId = None):
 
-        query = "SELECT Name, Description, Amount, DATE_FORMAT(DueDate, '%d/%m/%Y') as DueDate from Bill where DueDate = '{0}';".format(format(str(datetime.datetime.now())))
+        query = "SELECT Name, Description, Amount, DATE_FORMAT(DueDate, '%d/%m/%Y') as DueDate from Bill where DueDate <= '{0}';".format(str(datetime.now()))
 
-        if clientId != None:
+        if billIssuerId != None:
             # this is a user querry
-            querry = querry[:-1] # strip ';', will need a new one
-            query += "and BillIssuerId = '{0}';".format(clientId)
+            query = query[:-1] # strip ';', will need a new one
+            query += "and BillIssuerId = '{0}';".format(billIssuerId)
+
+        if billIssuerId != None:
+            # this is a user querry
+            query = query[:-1] # strip ';', will need a new one
+            query += "and billPayeeId = '{0}';".format(billPayeeId)
 
         return self.simpleQueryRunner(query)
 
-    def querryUpCommingBills(self, clientId = None):
+    def querryUpCommingBills(self, billIssuerId = None, billPayeeId = None):
 
-        query = "SELECT Name, Description, Amount, DATE_FORMAT(DueDate, '%d/%m/%Y') as DueDate from Bill where DueDate = '{0}';".format(format(str(datetime.datetime.now())))
+        query = "SELECT Name, Description, Amount, DATE_FORMAT(DueDate, '%d/%m/%Y') as DueDate from Bill where DueDate > '{0}';".format(str(datetime.now()))
 
-        if clientId != None:
+        if billIssuerId != None:
             # this is a user querry
-            querry = querry[:-1] # strip ';', will need a new one
-            query += "and BillIssuerId = '{0}';".format(clientId)
+            query = query[:-1] # strip ';', will need a new one
+            query += "and BillIssuerId = '{0}';".format(billIssuerId)
+
+        if billIssuerId != None:
+            # this is a user querry
+            query = query[:-1] # strip ';', will need a new one
+            query += "and billPayeeId = '{0}';".format(billPayeeId)
 
         return self.simpleQueryRunner(query)
 
