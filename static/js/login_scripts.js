@@ -4,6 +4,24 @@ function onLoad() {
     });
 }
 
+function demoSignIn(){
+    $.ajax({
+        url : '/',
+        method : 'POST',
+        contentType : 'application/json',
+        data : {
+            'name' : 'demoName', 
+            'email' : 'demo@demoEmail.com'
+        },
+        complete : function(response) {
+            console.log('here')
+            console.log(response)
+
+            window.location = "/start"
+        }
+    });
+}
+
 function onGoogleSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     /*console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.

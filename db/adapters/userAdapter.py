@@ -22,6 +22,7 @@ class userAdapter(dbAdapter):
 
 
     def queryUserByClientId(self, clientId):
+        print 'clientId: ' + str(clientId)
         query = "SELECT  Email, LoginName, FirstName,lastName from User where GroupId = '{0}';".format(clientId)
         return self.simpleQueryRunner(query)
  

@@ -1,6 +1,8 @@
 CLIENT_ID = "197189255793-bl78f1gs26vel4ddt228prhu2156t60s.apps.googleusercontent.com"
 #client secret: ObtDR11JgZpCBM30nylNC97h
 
+from bottle import request
+
 import uuid
 
 from bottle import redirect
@@ -8,6 +10,7 @@ from oauth2client import client, crypt
 
 from dbManager import *
 from userAdapter import *
+from include import *
 
 def checkIfUserExists(clientId):
     return True
@@ -35,13 +38,15 @@ def GetCurrentUserId():
     session = request.environ['beaker.session']
     
     sid = session['sessionId']
+    print sid
     clientId = loginCachedData.getClientId(sid)
-    print clientid
+    print clientId
     return clientId
     ## implement this
     #return '76af103c-ea3e-11e5-a609-f7c4ee5bfee6'
 
 def authenticate(request, response):
+
     usersid = None
     sid = None
     #response.headers['Access-Control-Allow-Origin'] = '*'
@@ -63,6 +68,26 @@ def authenticate(request, response):
         pass
     elif (usersid is None or usersid != sid):
         token = request.forms.get('auth_token')
+        name = request.forms.get('name')
+
+        print 'name is' + str(name)
+
+        if(str(name).strip() == 'demoName'):
+            print 'demo user login'
+            sid = uuid.uuid4().urn[9:]
+            session = request.environ['beaker.session']
+            session['sessionId'] = sid
+            session.save()
+            
+            print sid
+
+            loginCachedData.setSID(sid,uuid.UUID('204de18f-ed4f-11e5-8824-8c89a5c59145'))
+
+            response.set_cookie('sessionId', sid)
+            response.status = 200
+            return 1
+
+
         if (token is None):
             print 'redirect to login'
             redirect('/login')
