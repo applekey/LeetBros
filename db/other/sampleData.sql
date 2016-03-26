@@ -12,7 +12,7 @@ INSERT INTO housing.User (UserId, Email, LoginName, PasswordHash, FirstName, Las
 #bills
 INSERT INTO Bill (BillId, Name, Description, Amount, DueDate,BillIssuerId, BillPayeeId)
     VALUES
-    ('6ea07992-ed52-11e5-8824-8c89a5c59145', 'bill1', 'billDesc1', 10, DATE_ADD(NOW(),INTERVAL 1 DAY), '2ea07995-ed52-11e5-8824-8c89a5c59145', '2ea07995-ed52-11e5-8824-8c89a5c59145'),
-    ('3ea07992-ed52-11e5-8824-8c89a5c59145', 'bill2', 'billDesc2', 11, DATE_ADD(NOW(),INTERVAL 2 DAY), '2ea07994-ed52-11e5-8824-8c89a5c59145', '2ea07995-ed52-11e5-8824-8c89a5c59145'),
-    ('4ea07992-ed52-11e5-8824-8c89a5c59145', 'bill3', 'billDesc3', 12, DATE_ADD(NOW(),INTERVAL 3 DAY), '2ea07993-ed52-11e5-8824-8c89a5c59145', '2ea07995-ed52-11e5-8824-8c89a5c59145'),
-    ('5ea07992-ed52-11e5-8824-8c89a5c59145', 'bill4', 'billDesc4', 13, DATE_ADD(NOW(),INTERVAL 4 DAY), '2ea07992-ed52-11e5-8824-8c89a5c59145', '2ea07995-ed52-11e5-8824-8c89a5c59145');
+    ('6ea07992-ed52-11e5-8824-8c89a5c59145', 'bill1', 'billDesc1', 10, DATE_ADD(NOW(),INTERVAL 1 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07995-ed52-11e5-8824-8c89a5c59145'),
+    ('3ea07992-ed52-11e5-8824-8c89a5c59145', 'bill2', 'billDesc2', 11, DATE_ADD(NOW(),INTERVAL 2 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07994-ed52-11e5-8824-8c89a5c59145'),
+    ('4ea07992-ed52-11e5-8824-8c89a5c59145', 'bill3', 'billDesc3', 12, DATE_ADD(NOW(),INTERVAL 3 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07993-ed52-11e5-8824-8c89a5c59145'),
+    ('5ea07992-ed52-11e5-8824-8c89a5c59145', 'bill4', 'billDesc4', 13, DATE_ADD(NOW(),INTERVAL 4 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07992-ed52-11e5-8824-8c89a5c59145');
