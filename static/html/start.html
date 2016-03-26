@@ -75,7 +75,7 @@
                       <ul class="nav" id="side-menu">
 
                         <li>
-                            <a href="#" onclick="loadViewStart()" class="active"><i class="fa fa-dashboard fa-fw"></i> Home </a>
+                            <a href="#" onclick="loadDash()" class="active"><i class="fa fa-dashboard fa-fw"></i> Home </a>
                         </li>
 
                         <li >
@@ -135,16 +135,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="template/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <script>
-        function loadViewStart(){
-            $('#page-wrapper').empty();
-            $('#page-wrapper').load('shtml/startPanel.html');
-        }
-        // this is the main page !!! hack hack hack
-        loadViewStart()
-    </script>
-
+    
     <!-- Metis Menu Plugin JavaScript -->
     <script src="template/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 

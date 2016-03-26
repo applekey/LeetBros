@@ -131,6 +131,15 @@ def server_static(function):
     #     return attachments
     clientId = AuthenticationManager.GetCurrentUserId()
 
+    if function == 'viewDash':
+        bAdapter = billAdapter(*dbManager.getDBConfig())
+        bAdapter.connect()
+        #bAdapter.insertBill(data)
+        result = bAdapter.querryUpCommingBills()
+        bAdapter.disconnect()
+        return json.dumps(result)
+
+
     if function == 'viewTenants':
         usrAdapter =userAdapter(*dbManager.getDBConfig())
 

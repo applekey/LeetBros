@@ -1,6 +1,6 @@
 function loadDash(){
   $('#page-wrapper').empty();
-  $('#page-wrapper').load('shtml/dash.html');
+  $('#page-wrapper').load('shtml/dash.html', loadDashFunc);
 }
 
 function loadBill(){
@@ -99,6 +99,17 @@ function insertTableElements(data,tableName)
     $(tableName).append(headerString)
 
 };
+
+function insertDashElements(data)
+{
+  insertTableElements(data,"#dashTable")
+}
+
+function loadDashFunc()
+{
+  $.get( "/functions/viewDash", insertDashElements)
+}
+
 
 function insertTenantTableElements(data)
 {
