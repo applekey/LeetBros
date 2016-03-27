@@ -13,7 +13,7 @@ CREATE PROCEDURE uspAddUser (
    IN userType INT)
 
 BEGIN
-  INSERT INTO housing.User (UserId, Email, LoginName, PasswordHash, FirstName, LastName, GroupId, UserType) 
+  INSERT INTO User (UserId, Email, LoginName, PasswordHash, FirstName, LastName, GroupId, UserType) 
   VALUES (UUID(), email, loginName, SHA1(password), firstName, lastName, groupId, userType);
 END $$
 

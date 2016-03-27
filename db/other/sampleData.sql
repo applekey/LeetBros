@@ -1,7 +1,7 @@
 #people
 # the default client id is 204de18f-ed4f-11e5-8824-8c89a5c59145
 
-INSERT INTO housing.User (UserId, Email, LoginName, PasswordHash, FirstName, LastName, GroupId, UserType)
+INSERT INTO User (UserId, Email, LoginName, PasswordHash, FirstName, LastName, GroupId, UserType)
   VALUES
   ('204de18f-ed4f-11e5-8824-8c89a5c59145', 'demoUser@gmail.com', 'demoUser', SHA1('demoPassword'), 'john', 'doe', '204de18f-ed4f-11e5-8824-8c89a5c59145', 1),
   ('2ea07995-ed52-11e5-8824-8c89a5c59145', 'client1@gmail.com', 'defaultLoginName', SHA1('defaultPassword'), 'client1', 'c1LastName', '204de18f-ed4f-11e5-8824-8c89a5c59145', 2),
