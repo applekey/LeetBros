@@ -38,9 +38,10 @@ def GetCurrentUserId():
     session = request.environ['beaker.session']
     
     sid = session['sessionId']
-    print sid
-    clientId = loginCachedData.getClientId(sid)
-    print clientId
+    clientSid = loginCachedData(*dbManager.getDBConfig())
+    clientSid.connect()
+    clientId = clientSid.getClientId(sid)
+    clientSid.disconnect()
     return clientId
     ## implement this
     #return '76af103c-ea3e-11e5-a609-f7c4ee5bfee6'
@@ -79,9 +80,11 @@ def authenticate(request, response):
             session['sessionId'] = sid
             session.save()
             
-            print sid
-
-            loginCachedData.setSID(sid,uuid.UUID('204de18f-ed4f-11e5-8824-8c89a5c59145'))
+            clientSid = loginCachedData(*dbManager.getDBConfig())
+            clientSid.connect()
+            clientSid.setSID(sid,uuid.UUID('204de18f-ed4f-11e5-8824-8c89a5c59145'))
+            clientSid.disconnect()
+            
 
             response.set_cookie('sessionId', sid)
             response.status = 200
@@ -119,7 +122,10 @@ def authenticate(request, response):
                 session['sessionId'] = sid
                 session.save()
 
-                loginCachedData.setSID(sid,clientid)
+                clientSid = loginCachedData(*dbManager.getDBConfig())
+                clientSid.connect()
+                clientSid.setSID(sid,clientid)
+                clientSid.disconnect()
 
                 response.set_cookie('sessionId', sid)
                 response.status = 200

@@ -1,22 +1,38 @@
 #import * from cachedData
+from dbManager import *
+import uuid;
+from datetime import datetime, date
+from dbAdapter import *
 
-loginDataCache = {} ##sid to client id matching
+class loginCachedData(dbAdapter):
+	
+	def getClientId(self,sid): 
+		cursor = None
+		try:
+			cursor = self.connection.cursor()
+			#print sid
+			args = (str(sid),'')
+			
+			output = cursor.callproc('uspGETUserId',args)
+			# output =cursor.execute('SELECT @ouserId')
+			#results = cursor.fetchall()
+			return output[1]
+			#print results
 
-class loginCachedData:#(cachedData):
+		except Exception, e:
+			#log this failure
+			print "getClientId: " + str(e)
+			return False
+		finally:
+			if cursor != None:
+			    cursor.close()
 
-	#@cache.cache('getClientId', expire=3600)
-	@staticmethod
-	def getClientId(sid): 
-		global loginDataCache
-		if sid in loginDataCache.keys():
-			return loginDataCache[sid]
-		else:
-			return None
-
-	@staticmethod
-	def setSID(sid, clientId):
-		#invalidate cache
-		global loginDataCache
-		loginDataCache[sid] = clientId
-		#cache.invalidate(get_results, 'getClientId', sid)
-
+	def setSID(self, sid, clientId):
+	#invalidate cache
+		sid = str(sid)
+		clientId = str(clientId)
+		query = "Insert into ClientSID (UserId, SID) values ('{0}','{1}');".format(clientId,sid)
+		self.simpleQueryRunner(query)
+		self.connection.commit()
+		print query
+		return None

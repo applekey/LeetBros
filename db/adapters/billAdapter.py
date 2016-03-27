@@ -19,7 +19,7 @@ class billAdapter(dbAdapter):
                 cursor.close()
 
     def queryBills(self, clientId):
-        print 'clientId: ' + str(clientId)
+        #print 'clientId: ' + str(clientId)
         query = "SELECT Name, Description, Amount, DATE_FORMAT(DueDate, '%d/%m/%Y') as DueDate from Bill where BillIssuerId = '{0}';".format(clientId)
         return self.simpleQueryRunner(query)
 
