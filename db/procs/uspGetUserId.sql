@@ -8,7 +8,7 @@ CREATE PROCEDURE uspGETUserId (
    OUT ouserId varchar(36))
 
 BEGIN
-  set ouserId := (select UserId from  clientsid where  SID = isid);
+  set ouserId := (select UserId from  ClientSID where  SID = isid);
 END $$
 
 DELIMITER ;
