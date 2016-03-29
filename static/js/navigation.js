@@ -63,7 +63,7 @@ function keyMapper(key)
   ////////
   else
   {
-    return 'not mapped'
+    return key
   }
 }
 
