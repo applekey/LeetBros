@@ -1,34 +1,3 @@
-function loadDash(){
-  $('#page-wrapper').empty();
-  $('#page-wrapper').load('shtml/dash.html', loadDashFunc);
-}
-
-function loadBill(){
-  $('#page-wrapper').empty();
-  $('#page-wrapper').load('shtml/bill.html');
-}
-
-function loadAddTenant(){
-  $('#page-wrapper').empty();
-  $('#page-wrapper').load('shtml/addTenant.html');
-}
-
-function loadViewTenant(){
-  $('#page-wrapper').empty();
-  $('#page-wrapper').load('shtml/viewTenant.html',loadTenants);
-}
-
-function loadAddBill(){
-  $('#page-wrapper').empty();
-  $('#page-wrapper').load('shtml/addBill.html', populateTenants);
-}
-
-function loadViewBill(){
-  $('#page-wrapper').empty();
-  $('#page-wrapper').load('shtml/viewBills.html', loadBills);
-}
-
-
 ///****       **      **      **//
 
 // user to remap names
@@ -66,6 +35,48 @@ function keyMapper(key)
     return key
   }
 }
+
+function loadViewTemplate(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/viewTemplate.html', loadDashFunc);
+}
+
+function loadCreateTemplate(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/createTemplate.html', loadDashFunc);
+}
+
+function loadDash(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/dash.html', loadDashFunc);
+}
+
+function loadBill(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/bill.html');
+}
+
+function loadAddTenant(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/addTenant.html');
+}
+
+function loadViewTenant(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/viewTenant.html',loadTenants);
+}
+
+function loadAddBill(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/addBill.html', populateTenants);
+}
+
+function loadViewBill(){
+  $('#page-wrapper').empty();
+  $('#page-wrapper').load('shtml/viewBills.html', loadBills);
+}
+
+
 
 function isEmpty(val){
     return (val === undefined || val == null || val.length <= 0) ? true : false;

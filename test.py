@@ -4,6 +4,14 @@ sys.path.append(attachmentDirectory)
 from serviceInclude import *
 
 import datetime
+#template tests
+
+def testTemplates():
+	
+
+
+
+
 ## bill tests
 def insertBillTest():
 	bAdapter = billAdapter(*dbManager.getDBConfig())
@@ -56,5 +64,5 @@ def querryPastBillsTest():
 def DashTest():
 	print GetDashInfo('blah','blah')
 
-print DashTest()
+#print DashTest()
 
