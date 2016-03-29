@@ -8,12 +8,13 @@ CREATE PROCEDURE uspCreateBill (
    IN amount FLOAT,
    IN dueDate DATE,
    IN billIssuerId varchar(36),
-   IN billPayeeId varchar(36))
-
+   IN billPayeeId varchar(36),
+   IN paid BOOLEAN,
+   IN paidDate DATETIME)
 
 BEGIN
-    INSERT INTO Bill (BillId, Name, Description, Amount, DueDate,BillIssuerId, BillPayeeId) 
-    VALUES(UUID(), name, description, amount, dueDate, billIssuerId, billPayeeId) ;
+    INSERT INTO Bill (BillId, Name, Description, Amount, DueDate,BillIssuerId, BillPayeeId, paid, PaidDate) 
+    VALUES(UUID(), name, description, amount, dueDate, billIssuerId, billPayeeId, paid, paidDate) ;
 END $$
 
 DELIMITER ;

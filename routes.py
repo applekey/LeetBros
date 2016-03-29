@@ -73,7 +73,7 @@ def addTenant():
     successCreate = usrAdapter.insertUser(data)
     usrAdapter.disconnect()
 
-    return 'done'
+    return '<a href="/">Back</a>'
     # if successCreate == True:
     #     return 'Done'
     # else:
@@ -89,7 +89,9 @@ def addBill():
         'Amount' : request.forms.get('amount'),
         'DueDate' : request.forms.get('duedate'),
         'BillIssuerId': currentUserId ,
-        'BillPayeeId': currentUserId
+        'BillPayeeId': currentUserId,
+        'Paid' : False,
+        'PaidDate': str(datetime.now()),
     }
 
     tenantemail = request.forms.get('peopleDropdown')
@@ -119,7 +121,7 @@ def addBill():
     # owedAdap.insertOwed(personIdc, billId)
     # owedAdap.disconnect()
 
-    return 'done'
+    return '<a href="/">Back</a>'
 
 @route('/functions/<function>')
 def server_static(function):
@@ -131,11 +133,28 @@ def server_static(function):
     #     return attachments
     clientId = AuthenticationManager.GetCurrentUserId()
 
-    if function == 'viewDash':
+    if function == 'upCommingBills':
         bAdapter = billAdapter(*dbManager.getDBConfig())
         bAdapter.connect()
         #bAdapter.insertBill(data)
-        result = bAdapter.querryUpCommingBills()
+        result = bAdapter.querryUpCommingBills(clientId)
+        bAdapter.disconnect()
+        return json.dumps(result)
+
+    if function == 'upCommingBills':
+        bAdapter = billAdapter(*dbManager.getDBConfig())
+        bAdapter.connect()
+        #bAdapter.insertBill(data)
+        result = bAdapter.querryUpCommingBills(clientId)
+        bAdapter.disconnect()
+        return json.dumps(result)
+
+
+    if function == 'recentlyPaidBill':
+        bAdapter = billAdapter(*dbManager.getDBConfig())
+        bAdapter.connect()
+        #bAdapter.insertBill(data)
+        result = bAdapter.querryPastDueBills(clientId)
         bAdapter.disconnect()
         return json.dumps(result)
 

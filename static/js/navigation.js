@@ -67,12 +67,18 @@ function keyMapper(key)
   }
 }
 
-function insertTableElements(data,tableName)
+function isEmpty(val){
+    return (val === undefined || val == null || val.length <= 0) ? true : false;
+}
+
+function insertTableElements(data,tableName, tableHeaderName)
 {
     var result = $.parseJSON( data )
-    console.log(result)
+    
     //fix fix fix check for none case
     var headerString = "<thead class='thead-default'> <tr> <th>#</th>"
+
+
 
     for (key in result[0])
     {
@@ -97,17 +103,29 @@ function insertTableElements(data,tableName)
     headerString += '</tbody>'
     //console.log(headerString)
     $(tableName).append(headerString)
+    if( !isEmpty(tableHeaderName))
+    {
+      $(tableName).parent().prepend('<h3>' + tableHeaderName + '</h3> ')
+    }
+
+    
 
 };
 
-function insertDashElements(data)
+function insertUpCommingElements(data)
 {
-  insertTableElements(data,"#dashTable")
+  insertTableElements(data,"#upCommingBills", 'UpComming Bills')
+}
+
+function insertPaidElements(data)
+{
+  insertTableElements(data,"#lastPaidBills", 'Last Paid Bills ')
 }
 
 function loadDashFunc()
 {
-  $.get( "/functions/viewDash", insertDashElements)
+  $.get( "/functions/upCommingBills", insertUpCommingElements)
+  $.get( "/functions/recentlyPaidBill", insertPaidElements)
 }
 
 

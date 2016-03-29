@@ -1,6 +1,9 @@
 #people
 # the default client id is 204de18f-ed4f-11e5-8824-8c89a5c59145
 
+delete from User;
+delete from Bill;
+
 INSERT INTO User (UserId, Email, LoginName, PasswordHash, FirstName, LastName, GroupId, UserType)
   VALUES
   ('204de18f-ed4f-11e5-8824-8c89a5c59145', 'demoUser@gmail.com', 'demoUser', SHA1('demoPassword'), 'john', 'doe', '204de18f-ed4f-11e5-8824-8c89a5c59145', 1),
@@ -9,10 +12,10 @@ INSERT INTO User (UserId, Email, LoginName, PasswordHash, FirstName, LastName, G
   ('2ea07993-ed52-11e5-8824-8c89a5c59145', 'client3@gmail.com', 'defaultLoginName', SHA1('defaultPassword'), 'client3', 'c3LastName', '204de18f-ed4f-11e5-8824-8c89a5c59145', 2),
   ('2ea07992-ed52-11e5-8824-8c89a5c59145', 'client4@gmail.com', 'defaultLoginName', SHA1('defaultPassword'), 'client4', 'c4LastName', '204de18f-ed4f-11e5-8824-8c89a5c59145', 2);
 
-#bills
-INSERT INTO Bill (BillId, Name, Description, Amount, DueDate,BillIssuerId, BillPayeeId)
+#bills bill 1 has already being paid
+INSERT INTO Bill (BillId, Name, Description, Amount, DueDate,BillIssuerId, BillPayeeId, Paid, paidDate)
     VALUES
-    ('6ea07992-ed52-11e5-8824-8c89a5c59145', 'bill1', 'billDesc1', 10, DATE_ADD(NOW(),INTERVAL 1 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07995-ed52-11e5-8824-8c89a5c59145'),
-    ('3ea07992-ed52-11e5-8824-8c89a5c59145', 'bill2', 'billDesc2', 11, DATE_ADD(NOW(),INTERVAL 2 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07994-ed52-11e5-8824-8c89a5c59145'),
-    ('4ea07992-ed52-11e5-8824-8c89a5c59145', 'bill3', 'billDesc3', 12, DATE_ADD(NOW(),INTERVAL 3 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07993-ed52-11e5-8824-8c89a5c59145'),
-    ('5ea07992-ed52-11e5-8824-8c89a5c59145', 'bill4', 'billDesc4', 13, DATE_ADD(NOW(),INTERVAL 4 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07992-ed52-11e5-8824-8c89a5c59145');
+    ('6ea07992-ed52-11e5-8824-8c89a5c59145', 'bill1', 'billDesc1', 10, DATE_SUB(NOW(),INTERVAL 1 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07995-ed52-11e5-8824-8c89a5c59145',true,'1000-01-01 00:00:00'),
+    ('3ea07992-ed52-11e5-8824-8c89a5c59145', 'bill2', 'billDesc2', 11, DATE_ADD(NOW(),INTERVAL 2 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07994-ed52-11e5-8824-8c89a5c59145',false,'1000-01-01 00:00:00'),
+    ('4ea07992-ed52-11e5-8824-8c89a5c59145', 'bill3', 'billDesc3', 12, DATE_ADD(NOW(),INTERVAL 3 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07993-ed52-11e5-8824-8c89a5c59145',false,'1000-01-01 00:00:00'),
+    ('5ea07992-ed52-11e5-8824-8c89a5c59145', 'bill4', 'billDesc4', 13, DATE_ADD(NOW(),INTERVAL 4 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07992-ed52-11e5-8824-8c89a5c59145',false,'1000-01-01 00:00:00');

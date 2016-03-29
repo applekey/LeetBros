@@ -1,3 +1,5 @@
+drop table if exists bill;
+
 CREATE TABLE Bill(
    BillId varchar(36) NOT NULL UNIQUE, -- this is a guid
    Name NVARCHAR(100) NOT NULL,
@@ -6,5 +8,7 @@ CREATE TABLE Bill(
    DueDate DATE NOT NULL,
    BillIssuerId varchar(36) NOT NULL,
    BillPayeeId varchar(36) NOT NULL,
+   Paid BOOLEAN NOT NULL,
+   PaidDate DATETIME,
    PRIMARY KEY ( BillId )
 );
