@@ -1,13 +1,10 @@
--- remove the following tables
-
-drop table if exists people_tbl;
-drop table if exists user_tbl;
+// procs remove themselves
 
 // tables
-source {dir} /home/applekey/Documents/LeetBros/db/tables/Bill_tbl.sql
-source {dir} /home/applekey/Documents/LeetBros/db/tables/User_tbl.sql
-source {dir} /home/applekey/Documents/LeetBros/db/tables/ClientSID_tbl.sql
-source {dir} /home/applekey/Documents/LeetBros/db/tables/Template_tbl.sql
+source /home/applekey/Documents/LeetBros/db/tables/Bill_tbl.sql
+source /home/applekey/Documents/LeetBros/db/tables/User_tbl.sql
+source /home/applekey/Documents/LeetBros/db/tables/ClientSID_tbl.sql
+source /home/applekey/Documents/LeetBros/db/tables/Template_tbl.sql
 
 
 // procs
@@ -17,3 +14,5 @@ source /home/applekey/Documents/LeetBros/db/procs/uspCreateBill.sql
 source /home/applekey/Documents/LeetBros/db/procs/uspIfUserExists.sql
 source /home/applekey/Documents/LeetBros/db/procs/uspGetUserId.sql
 source /home/applekey/Documents/LeetBros/db/tables/uspAddTemplate.sql
+
+// sample data

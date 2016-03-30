@@ -4,6 +4,7 @@ import json
 
 from include import *
 
+
 @hook('before_request')
 def authenticate():
     result = AuthenticationManager.authenticate(request, response)
@@ -133,12 +134,12 @@ def server_static(function):
     #     return attachments
     clientId = AuthenticationManager.GetCurrentUserId()
 
-    if function == 'upCommingBills':
-        bAdapter = billAdapter(*dbManager.getDBConfig())
-        bAdapter.connect()
-        #bAdapter.insertBill(data)
-        result = bAdapter.querryUpCommingBills(clientId)
-        bAdapter.disconnect()
+    if function == 'loadViewTemplates':
+        tAdapter = templateAdapter(*dbManager.getDBConfig())
+        tAdapter.connect()
+        result = tAdapter.ListAvaliableTemplates(clientId) 
+
+        tAdapter.disconnect()
         return json.dumps(result)
 
     if function == 'upCommingBills':

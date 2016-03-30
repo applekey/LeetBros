@@ -15,6 +15,7 @@ from dbManager import *
 from userAdapter import *
 from billAdapter import *
 from loginCachedData import *
+from templateAdapter import *
 import AuthenticationManager
 
 

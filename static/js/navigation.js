@@ -36,9 +36,20 @@ function keyMapper(key)
   }
 }
 
+function insertTemplateElements(data){
+  insertTableElements(data,"#avaliableTemplateTable", 'Avaliable Templates')
+}
+
+
+function loadViewTemplateList(){
+  $.get( "/functions/loadViewTemplates", insertTemplateElements)
+
+}
+
+
 function loadViewTemplate(){
   $('#page-wrapper').empty();
-  $('#page-wrapper').load('shtml/viewTemplate.html', loadDashFunc);
+  $('#page-wrapper').load('shtml/viewTemplate.html', loadViewTemplateList);
 }
 
 function loadCreateTemplate(){

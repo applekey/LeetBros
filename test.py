@@ -2,14 +2,34 @@ from include import *
 attachmentDirectory = os.path.join(os.getcwd(),'services')
 sys.path.append(attachmentDirectory)
 from serviceInclude import *
+from datetime import datetime, date, time
 
-import datetime
+from templateAdapter import *
 #template tests
 
 def testTemplates():
-	
+	print 'here'
+	tAdapter = templateAdapter(*dbManager.getDBConfig())
+
+	tAdapter.connect()
+
+	clientId = '204de18f-ed4f-11e5-8824-8c89a5c59145'
+
+	data = {
+			'name': 'dummyTemplate',
+			'description': 'dummyTemplateDescription',
+			'templateText' : 'dummy html webpage',
+			'createDate': str(datetime.now()),
+			'creator':clientId
+	}
+
+	tAdapter.StoreTemplate(data,clientId)	
+
+	print tAdapter.ListAvaliableTemplates(clientId)	
+	tAdapter.disconnect()
 
 
+testTemplates()
 
 
 ## bill tests
