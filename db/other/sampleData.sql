@@ -19,3 +19,12 @@ INSERT INTO Bill (BillId, Name, Description, Amount, DueDate,BillIssuerId, BillP
     ('3ea07992-ed52-11e5-8824-8c89a5c59145', 'bill2', 'billDesc2', 11, DATE_ADD(NOW(),INTERVAL 2 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07994-ed52-11e5-8824-8c89a5c59145',false,'1000-01-01 00:00:00'),
     ('4ea07992-ed52-11e5-8824-8c89a5c59145', 'bill3', 'billDesc3', 12, DATE_ADD(NOW(),INTERVAL 3 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07993-ed52-11e5-8824-8c89a5c59145',false,'1000-01-01 00:00:00'),
     ('5ea07992-ed52-11e5-8824-8c89a5c59145', 'bill4', 'billDesc4', 13, DATE_ADD(NOW(),INTERVAL 4 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07992-ed52-11e5-8824-8c89a5c59145',false,'1000-01-01 00:00:00');
+
+
+## insert sample templates
+INSERT INTO Template (TemplateId, Name, Description, TemplateText, CreateDate, Creator)
+  VALUES
+  ('1ea07992-ed52-11e5-8824-8c89a5c59145', 'SampleTemplate1', 'SampleTemplateDesc1', 'html txt 1', NOW(), '204de18f-ed4f-11e5-8824-8c89a5c59145'),
+  ('2ea07992-ed52-11e5-8824-8c89a5c59145', 'SampleTemplate2', 'SampleTemplateDesc2', 'html txt 2', NOW(), '204de18f-ed4f-11e5-8824-8c89a5c59145')
+
+

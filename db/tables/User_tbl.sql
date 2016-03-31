@@ -1,3 +1,5 @@
+drop table if exists User;
+
 CREATE TABLE User(
    UserId varchar(36) NOT NULL UNIQUE, -- this is a guid
    Email NVARCHAR(100) NOT NULL UNIQUE,
