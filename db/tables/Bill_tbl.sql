@@ -1,4 +1,4 @@
-drop table if exists bill;
+drop table if exists Bill;
 
 CREATE TABLE Bill(
    BillId varchar(36) NOT NULL UNIQUE, -- this is a guid
