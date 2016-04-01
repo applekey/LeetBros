@@ -161,10 +161,53 @@ INSERT INTO Bill (BillId, Name, Description, Amount, DueDate,BillIssuerId, BillP
     ('5ea07992-ed52-11e5-8824-8c89a5c59145', 'bill4', 'billDesc4', 13, DATE_ADD(NOW(),INTERVAL 4 DAY), '204de18f-ed4f-11e5-8824-8c89a5c59145', '2ea07992-ed52-11e5-8824-8c89a5c59145',false,'1000-01-01 00:00:00');
 
 
+
+set @modalText1 = '
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>';
+
+set @modalText2 = '
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>';
+
 ## insert sample templates
 INSERT INTO Template (TemplateId, Name, Description, TemplateText, CreateDate, Creator)
   VALUES
-  ('1ea07992-ed52-11e5-8824-8c89a5c59145', 'SampleTemplate1', 'SampleTemplateDesc1', 'html txt 1', NOW(), '204de18f-ed4f-11e5-8824-8c89a5c59145'),
-  ('2ea07992-ed52-11e5-8824-8c89a5c59145', 'SampleTemplate2', 'SampleTemplateDesc2', 'html txt 2', NOW(), '204de18f-ed4f-11e5-8824-8c89a5c59145')
+  ('1ea07992-ed52-11e5-8824-8c89a5c59145', 'SampleTemplate1', 'SampleTemplateDesc1', @modalText1, NOW(), '204de18f-ed4f-11e5-8824-8c89a5c59145'),
+  ('2ea07992-ed52-11e5-8824-8c89a5c59145', 'SampleTemplate2', 'SampleTemplateDesc2', @modalText2, NOW(), '204de18f-ed4f-11e5-8824-8c89a5c59145')
 
 
