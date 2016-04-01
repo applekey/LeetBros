@@ -1,1 +1,43 @@
-createTemplate.html
+<form class="form-horizontal" action="addTemplate" method="post">
+<fieldset>
+
+
+
+<!-- Form Name -->
+<legend>Form Name</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="templateName">Template Name</label>  
+  <div class="col-md-4">
+  <input id="templateName" name="templateName" type="text" placeholder="templateName" class="form-control input-md">
+  <span class="help-block">help</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="templateDescription">Template Description</label>  
+  <div class="col-md-4">
+  <input id="templateDescription" name="templateDescription" type="text" placeholder="template description" class="form-control input-md">
+  <span class="help-block">help</span>  
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="templateText">Template Text</label>
+  <div class="col-md-4">                     
+    <textarea  rows="20" cols="70" class="form-control" id="templateText" name="templateText">template text</textarea>
+  </div>
+</div>
+
+<div class="form-group">
+<label class="col-md-4 control-label" for="singlebutton"></label>
+<div class="col-md-4">
+    <input type="submit" value="Add Template">
+</div>
+  </div>
+
+</fieldset>
+</form>

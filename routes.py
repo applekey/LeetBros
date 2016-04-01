@@ -45,6 +45,24 @@ def server_static(filepath):
 def server_static(filepath):
     return static_file(filepath, root='static/startbootstrap-sb-admin-2-gh-pages/')
 
+@route('/addTemplate', method='POST')
+def addTempalte():
+    currentUserId = AuthenticationManager.GetCurrentUserId()
+    data = {
+        'name' : request.forms.get('templateName'),
+        'description' : request.forms.get('templateDescription'),
+        'templateText' : request.forms.get('templateText'),
+        'createDate' : str(datetime.now()),
+        'creator': currentUserId
+    }
+
+    tAdapter = templateAdapter(*dbManager.getDBConfig())
+    tAdapter.connect()
+    
+    result = tAdapter.StoreTemplate(data, currentUserId) 
+
+    tAdapter.disconnect()
+
 @route('/addTenant', method='POST')
 def addTenant():
 
