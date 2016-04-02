@@ -38,7 +38,7 @@ class userAdapter(dbAdapter):
             uuid = None
             cursor = self.connection.cursor()
             if cursor is not None:
-                args = (data['email'], data['loginName'], data['passord'], data['firstName'], data['lastName'], data['groupId'],data['userType'], data['paid'], data[''])
+                args = (data['email'], data['loginName'], data['passord'], data['firstName'], data['lastName'], data['groupId'],data['userType'])
                 cursor.callproc('uspAddUser',args)
                 self.connection.commit()
             else:
