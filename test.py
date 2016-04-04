@@ -5,7 +5,28 @@ from serviceInclude import *
 from datetime import datetime, date, time
 
 from templateAdapter import *
+
+from sendGridAdapter import *  
+
 #template tests
+def testEmail():
+	apiKey = 'SG.d8TGGDj-Tv6uKEGausdKEw.6eysJGilzT7Wlx36wTR6s2ZKaJ-n8uVNeSmu-e6eSgo'
+
+	sgA = sendGridAdapter(apiKey)
+
+	data = {
+			'to': 'applekey@gmail.com',
+			'from': 'applekey@gmail.com',
+			'subject' : 'dummy html webpage',
+			'text': 'email'
+	}
+
+	sgA.sendEmail(data)
+
+
+testEmail()
+
+
 
 def testTemplates():
 	print 'here'
@@ -29,7 +50,7 @@ def testTemplates():
 	tAdapter.disconnect()
 
 
-testTemplates()
+#testTemplates()
 
 
 ## bill tests
