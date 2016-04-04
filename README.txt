@@ -1,3 +1,13 @@
+The business model / explanation can be found at 
+https://www.sharelatex.com/project/5701d11e92f7b606188f9157
+
+
+
+
+
+
+
+
 # vim: set ft=rst:
 
 See https://www.pythonanywhere.com/help (or click the "Help"
