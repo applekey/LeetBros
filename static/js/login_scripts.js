@@ -2,6 +2,10 @@ function onLoad() {
     gapi.load('auth2', function() {
         gapi.auth2.init();
     });
+
+    $("#loginform").bind('ajax:complete', function() {
+        window.location = '/start';
+    });
 }
 
 function demoSignIn(){
@@ -22,6 +26,13 @@ function demoSignIn(){
     });
 }
 
+// function login()
+// {
+//     $.ajax({
+//         url : 
+//     });
+// }
+
 function onGoogleSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     /*console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -38,9 +49,6 @@ function onGoogleSignIn(googleUser) {
             'email' : profile.getEmail()
         },
         complete : function(response) {
-            console.log('here')
-            console.log(response)
-
             window.location = "/start"
         }
     });

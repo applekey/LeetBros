@@ -1,7 +1,13 @@
 from dbAdapter import *
 
 class userAdapter(dbAdapter):
-    def queryUser(self,user,password):
+    def queryUser(self,user=None,password=None):
+
+        if user is None or password is None:
+            query = "SELECT  Email, LoginName, FirstName,lastName from User;"
+            result = self.simpleQueryRunner(query)
+            return result
+
         cursor = None
         try:
             exist = 0
@@ -25,12 +31,6 @@ class userAdapter(dbAdapter):
         #print 'clientId: ' + str(clientId)
         query = "SELECT  Email, LoginName, FirstName,lastName from User where GroupId = '{0}';".format(clientId)
         return self.simpleQueryRunner(query)
- 
-    def queryUser(self):
-        # only for debugging, remove 
-        query = "SELECT  Email, LoginName, FirstName,lastName from User;"
-        result = self.simpleQueryRunner(query)
-        return result
 
     def insertUser(self, data):
         cursor = None

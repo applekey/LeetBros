@@ -7,7 +7,7 @@ CREATE PROCEDURE uspIfUserExists (
     OUT userExist BOOL)
 
 BEGIN
-	IF EXISTS(select FirstName,LastName from user_tbl where LoginName = pLogin and PasswordHash = SHA1(pPassword) LIMIT 1) THEN
+	IF EXISTS(select FirstName,LastName from User where Email = pLogin and PasswordHash = SHA1(pPassword) LIMIT 1) THEN
 		SET userExist = 1;
 	ELSE
 		SET userExist = 0;

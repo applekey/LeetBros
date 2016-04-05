@@ -12,14 +12,16 @@ from dbManager import *
 from userAdapter import *
 from include import *
 
-def checkIfUserExists(clientId):
+def checkIfClientIdExists(clientId):
     return True
+
+def checkIfUserPassExists(user, passw):
     (username,password,host,database) = dbManager.getDBConfig()
 
     userExist = False
     usrAdapter =userAdapter(username,password,host,database)
     usrAdapter.connect()
-    userExist = usrAdapter.queryUser(username,password)
+    userExist = usrAdapter.queryUser(user,passw)
     usrAdapter.disconnect()
     return userExist
 
@@ -46,7 +48,34 @@ def GetCurrentUserId():
     ## implement this
     #return '76af103c-ea3e-11e5-a609-f7c4ee5bfee6'
 
-def authenticate(request, response):
+def manualLogin(request, response):
+    user = request.forms.get('inputEmail')
+    passw = request.forms.get('inputPassword')
+    rem = request.forms.get('rememberme') is not None
+
+    if user is None or passw is None:
+        return False
+
+    if checkIfUserPassExists(user, passw) is True:
+        sid = uuid.uuid4().urn[9:]
+        session = request.environ['beaker.session']
+        session['sessionId'] = sid
+        session.save()
+
+        response.set_cookie('sessionId', sid)
+        response.status = 200
+        print 'set cookie'
+
+        return True
+
+    return False
+
+def authenticate(request, response): # return 0 if continuing, 1 if responding right away
+
+    success = manualLogin(request, response)
+
+    if success:
+        return 0
 
     usersid = None
     sid = None
@@ -71,10 +100,10 @@ def authenticate(request, response):
         token = request.forms.get('auth_token')
         name = request.forms.get('name')
 
-        print 'name is' + str(name)
+        print 'name is ' + str(name)
 
         if(str(name).strip() == 'demoName'):
-            print 'demo user login'
+            #print 'demo user login'
             sid = uuid.uuid4().urn[9:]
             session = request.environ['beaker.session']
             session['sessionId'] = sid
@@ -92,7 +121,7 @@ def authenticate(request, response):
 
 
         if (token is None):
-            print 'redirect to login'
+            #print 'redirect to login'
             redirect('/login')
         else:
             idinfo = client.verify_id_token(token, CLIENT_ID)
@@ -106,7 +135,7 @@ def authenticate(request, response):
 
             clientid = idinfo['sub']
             sid = uuid.uuid4().urn[9:]
-            userExist = checkIfUserExists(clientid) # add user to DB if new
+            userExist = checkIfClientIdExists(clientid) # add user to DB if new
 
             if not userExist:
                 print 'user not exist'

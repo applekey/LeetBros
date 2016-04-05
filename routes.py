@@ -13,7 +13,6 @@ def authenticate():
     print 'continuing'
 
 @route('/', method='GET')
-@route('/', method='POST')
 def slash():
     print request.cookies.keys()
     print 'sending to start'
@@ -26,6 +25,7 @@ def login():
     return static_file('login.html', root='static/html')
 
 @route('/start',  method='GET')
+@route('/start', method='POST')
 def start():
     return static_file('start.html', root='static/html')
 
