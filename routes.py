@@ -24,6 +24,21 @@ def login():
     response.status = 200
     return static_file('login.html', root='static/html')
 
+@route('/register')
+def register():
+    response.status = 200
+    return static_file('register.html', root='static/html')
+
+@route('/register', method='POST')
+def registerUser():
+    result = AuthenticationManager.doRegister(request, response)
+
+    print 'result is: '
+    print result
+    if result:
+        response.status = 200
+    redirect('/login')
+
 @route('/start',  method='GET')
 @route('/start', method='POST')
 def start():

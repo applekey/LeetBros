@@ -2,10 +2,6 @@ function onLoad() {
     gapi.load('auth2', function() {
         gapi.auth2.init();
     });
-
-    $("#loginform").bind('ajax:complete', function() {
-        window.location = '/start';
-    });
 }
 
 function demoSignIn(){
@@ -26,12 +22,67 @@ function demoSignIn(){
     });
 }
 
-// function login()
-// {
-//     $.ajax({
-//         url : 
-//     });
-// }
+function login(data)
+{
+    $.ajax({
+        url : '/',
+        method : 'POST',
+        contentType : 'application/json',
+        data : data,
+        complete : function(response) {
+            window.location = '/start'
+        }
+    });
+}
+
+function customlogin()
+{
+    formVals = $('#loginform').serializeArray().reduce(function(obj, item) {
+        obj[item.name] = item.value;
+        return obj;
+    }, {});
+
+    data = {
+            'email' : formVals.inputEmail,
+            'passw' : formVals.inputPassword,
+            'customlogin' : 'true'
+        };
+
+    login(data);
+
+    return false;
+}
+
+function register(data)
+{
+    $.ajax({
+        url : '/register',
+        method : 'POST',
+        contentType : 'application/json',
+        data : data,
+        complete : function(response) {
+            window.location = '/login'
+        }
+    });
+}
+
+function registerUser()
+{
+    formVals = $('#registerform').serializeArray().reduce(function(obj, item) {
+        obj[item.name] = item.value;
+        return obj;
+    }, {});
+
+    data = {
+        'email' : formVals.inputEmail,
+        'passw' : formVals.inputPassword,
+        'confirmpass' : formVals.confirmPassword
+    }
+
+    register(data)
+
+    return false;
+}
 
 function onGoogleSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
@@ -39,27 +90,27 @@ function onGoogleSignIn(googleUser) {
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail());*/
-    $.ajax({
-        url : '/',
-        method : 'POST',
-        contentType : 'application/json',
-        data : {
+
+    data = {
             'auth_token' : googleUser.getAuthResponse().id_token, 
             'name' : profile.getName(), 
-            'email' : profile.getEmail()
-        },
-        complete : function(response) {
-            window.location = "/start"
-        }
-    });
+            'email' : profile.getEmail(),
+            'bigGlogin' : 'true'
+        };
+
+    login(data);
+}
+
+function signOut() {
+    deleteCookie('sessionId')
+    window.location = "/"
 }
 
 function googleSignOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
-      deleteCookie('sessionId')
-      window.location = "/"
+      signOut()
     });
 }
 
