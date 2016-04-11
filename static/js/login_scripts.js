@@ -29,8 +29,11 @@ function login(data)
         method : 'POST',
         contentType : 'application/json',
         data : data,
-        complete : function(response) {
+        success: function(data, txtStatus, xhr) {
             window.location = '/start'
+        },
+        error: function(data, txtStatus, xhr) {
+            window.location = '/login'
         }
     });
 }
@@ -66,7 +69,7 @@ function register(data)
     });
 }
 
-function registerUser()
+function registeruser()
 {
     formVals = $('#registerform').serializeArray().reduce(function(obj, item) {
         obj[item.name] = item.value;

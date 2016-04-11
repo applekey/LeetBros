@@ -106,29 +106,41 @@ def manualLogin(request, response):
     return False
 
 def doLogin(request, response): # return 0 if continuing, 1 if responding right away
+    #print request.path
+    
     if "/login" in request.path or "/register" in request.path:
         return 0
-
+    
+    if "/shtml/" in request.path \
+        or "/template/" in request.path \
+        or "/js/" in request.path \
+        or "/functions" in request.path:
+        return 0
+        
     data = request.POST #post data
 
     #for key in data:
     #    print key
 
     if 'customlogin' in data and data['customlogin'] == 'true':
-        result = manualLogin(request, response)
-        print result
-        if result:
-            return 1 #return to browser to set cookie with session ID
-        else:
+        if not manualLogin(request, response):
             print 'manualLogin was False'
-            redirect('/login')
+            response.status = 401
+        else:
+            print 'manualLogin was True'
+        
+        print response.status
+        return 1    
 
     if 'bigGlogin' in data and data['bigGlogin'] == 'true':
         print 'watever'
 
+    print 'about to authenticate'
     if authenticate(request, response) is not True:
-        print 'redirecting to login'
-        redirect('/login')
+        response.status = 401
+        return 1
+    
+    print 'passing through'
 
     # if "/shtml/" in request.path \
     #     or "/template/" in request.path \

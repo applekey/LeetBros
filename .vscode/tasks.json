@@ -1,0 +1,8 @@
+{
+    "command": "python",
+    "showOutput": "always",
+    "osx": {
+        "command": "python"
+    },
+    "args": ["bottle_app.py"]
+}
