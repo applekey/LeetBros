@@ -77,12 +77,17 @@ function registeruser()
     }, {});
 
     data = {
+        'firstName' : formVals.firstName,
+        'lastName' : formVals.lastName,
         'email' : formVals.inputEmail,
         'passw' : formVals.inputPassword,
         'confirmpass' : formVals.confirmPassword
     }
 
-    register(data)
+    if (data['passw'] != data['confirmpass'])
+        alert("Passwords do not match")
+    else
+        register(data)
 
     return false;
 }

@@ -45,10 +45,10 @@ class userAdapter(dbAdapter):
                 print 'no cursor'
 
             return uuid
-        except Exception, e:
-            #log this failure
-            print "userAdapter insertUser: " + str(e)
-            return -1
+        # except Exception, e:
+        #     #log this failure
+        #     print "userAdapter insertUser: " + str(e)
+        #     return -1
         finally:
             if cursor != None:
                 cursor.close()

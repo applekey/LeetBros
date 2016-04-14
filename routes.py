@@ -15,7 +15,7 @@ def authenticate():
 
 @route('/', method='GET')
 def slashget():
-    if response.status_code == 401:
+    if response.status == 401:
         redirect('/login')
     else:
         redirect('/start')
@@ -51,7 +51,7 @@ def registerUser():
 @route('/start',  method='GET')
 @route('/start', method='POST')
 def start():
-    if response.status != 200:
+    if response.status_code != 200:
         print 'return before start'
         return response
     return static_file('start.html', root='static/html')

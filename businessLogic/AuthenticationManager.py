@@ -11,6 +11,7 @@ from oauth2client import client, crypt
 from dbManager import *
 from userAdapter import *
 from include import *
+from UserManager import UserManager
 
 def checkIfClientIdExists(clientId):
     return True
@@ -53,6 +54,14 @@ def GetCurrentUserId():
     #return '76af103c-ea3e-11e5-a609-f7c4ee5bfee6'
 
 def doRegister(request, response):
+    data = request.POST
+    
+    for key in data:
+        print key
+    
+    manager = UserManager()
+    manager.createUser(data)
+    
     return True
 
 def makeSession(request, response):
