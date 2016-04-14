@@ -48,30 +48,23 @@
   <br>
   <br>
   <div class="container" align="center" >
-  
-  <button class="btn btn-primary" onclick = 'demoSignIn()'>Demo User</button>
 
-    <form id="loginform" class="form-signin" method="POST" onsubmit="return customlogin()" style='max-width: 300px;' >
-        <h2 class="form-signin-heading">Please sign in</h2>
+    <form id="registerform" class="form-signin" method="POST" 
+                                onsubmit="return registeruser()" style='max-width: 300px;'>
+        <h2 class="form-signing-heading">Sign up</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address"  autofocus>
+        <label class="sr-only" for="firstname">First Name</label>
+        <input id="firstName" name="firstName" type="text" placeholder="First Name" class="form-control" required="">
+        <label class="sr-only" for="lastName">First Name</label>
+        <input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control" required="">
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" >
-
-        <div class="checkbox">
-        <label>
-            <input type="checkbox" name="rememberme" value="remember-me">
-            Remember me
-        </label>
-        </div>
-        <input class="btn btn-lg btn-primary btn-block" type="submit">Sign in</input>
+        <label for="confirmPassword" class="sr-only">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password">
+        <input class="btn btn-lg btn-primary btn-block" type="submit">Sign up</input>
     </form>
-    
-    <a href="/register">Register</a>
 
-    <br>
-    <h2 class="form-signin-heading">Sign in with:</h2>
-    <div id="my-signin2" class="g-signin2" data-onsuccess="onGoogleSignIn"></div>
 
 </div> <!-- /container -->
 

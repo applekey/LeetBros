@@ -7,15 +7,24 @@ from include import *
 
 @hook('before_request')
 def authenticate():
-    result = AuthenticationManager.authenticate(request, response)
+    result = AuthenticationManager.doLogin(request, response)
     if result == 1:
-        return response
-    print 'continuing'
+        print 'returning ' + response.status
+    
+    print 'continuing ' + response.status
 
 @route('/', method='GET')
+def slashget():
+    if response.status == 401:
+        redirect('/login')
+    else:
+        redirect('/start')
+    
 @route('/', method='POST')
 def slash():
-    print request.cookies.keys()
+    if response.status_code != 200:
+        print '{0}: return before slash'.format(response.status_code)
+        return response
     print 'sending to start'
     redirect('/start')
 
@@ -25,8 +34,26 @@ def login():
     response.status = 200
     return static_file('login.html', root='static/html')
 
+@route('/register')
+def register():
+    response.status = 200
+    return static_file('register.html', root='static/html')
+
+@route('/register', method='POST')
+def registerUser():
+    result = AuthenticationManager.doRegister(request, response)
+
+    print 'result is: '
+    print result
+    if result:
+        response.status = 200
+
 @route('/start',  method='GET')
+@route('/start', method='POST')
 def start():
+    if response.status_code != 200:
+        print 'return before start'
+        return response
     return static_file('start.html', root='static/html')
 
 @route('/shtml/<filename>')
