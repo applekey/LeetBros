@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>KeySoft | Theme Documentation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+        <link href="css/styles.css" rel="stylesheet">
+        <script src="js/jquery-1.11.1.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand"><img src="images/logo.png" alt=""></a>
+                </div>
+                <nav class="collapse navbar-collapse" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="http://keydesign.ticksy.com/" target="_blank">Need support for this theme?</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+        <div id="masthead">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>KeySoft - Software Landing Page</h1>
+                        <p>This document contains general information and step by step guidelines<br /> on how to set up the theme.</p>
+                        <span class="cta-button"><a href="#getting-started">Get started</a></span>
+                    </div>
+                </div>
+            </div>
+            <!--/container-->
+        </div>
+        <!--/masthead-->
+        <!--main-->
+        <div id="mainContent" class="container">
+            <div class="row">
+                <!--left-->
+                <div class="col-md-3" id="leftCol">
+                    <ul class="nav nav-stacked" id="sidebar">
+                        <li><a href="#getting-started">Getting started</a></li>
+                        <li><a href="#gs-installing-the-theme">Header / Color Variations</a></li>
+                        <li><a href="#side-navigation">Navigation</a></li>
+                        <li><a href="#logo">Logo</a></li>
+                        <li><a href="#app-images">Particles Background</a></li>
+                        <li><a href="#bg-images">Image Background</a></li>
+                        <li><a href="#bg-video">Video Background</a></li>
+                        <li><a href="#pages">Sections</a></li>
+                        <li><a href="#icons">Icons</a></li>
+                        <li><a href="#map">Google Map</a></li>
+                        <li><a href="#contact">Contact Form</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <!--/left-->
+                <!--right-->
+                <div class="col-md-9">
+                    <h2 id="getting-started" class="first-heading-item">Getting started</h2>
+                    <p>Files and folders organization.</p>
+                    <img src="images/screen1.jpg" alt="">
+                    <h2 id="gs-installing-the-theme">Header Variations / Color Variations</h2>
+                    <p>Keysoft has 9 header variations, 3 header backgrounds x 3 header types: <br>
+                        <strong>Particles Background</strong> - Dashboard Variation, App Variation, Subscribe Form Variation <br>
+                        <strong>Video Background</strong> - Dashboard Variation, App Variation, Subscribe Form Variation <br>
+                        <strong>Image Background</strong> - Dashboard Variation, App Variation, Subscribe Form Variation <br>
+                    </p>
+                    <p>Keysoft has 6 color schemes. The css for each color scheme is in css/colors/color.css ; In order to activate a color scheme , go to index.html on line 17 and change the href attribute. ( see the screenshot from below )
+                    </p>
+                    <img src="images/screen2.jpg" alt="">
+                    <h2 id="side-navigation">Navigation</h2>
+                    <p><strong>Main navigation</strong> - from index.html</p>
+                    <img src="images/screen3.jpg" alt="">
+                    <h2 id="logo">Logo</h2>
+                    <strong>Logo </strong> - from index.html and img/logo.png
+                    <img src="images/screen4.jpg" alt="">
+                    <h2 id="app-images">Particles Background</h2>
+                    <p>The script is loaded in index.html , <strong>js/particles.js</strong></p>
+                    <img src="images/screen5.jpg" alt="">
+                    <p>In order to set up particles ( adjust particles density , color or speed ) , edit in <strong>js/scripts.js</strong></p>
+                    <img src="images/screen6.jpg" alt="">
+                    <h2 id="bg-images">Image Background</h2>
+                    <p>In order to change the background for an "image background" variation , replace the <strong>headerbg.jpg</strong> image</p>
+                    <img src="images/screen7.jpg" alt="">
+                    <p>Adjusting the background can be done by editing  <strong>style.css</strong> , from line 617:
+                        <img src="images/screen8.jpg" alt="">
+                    <h2 id="bg-video">Video Background</h2>
+                    <p>The video file is located in: <strong>video/video.mp4</strong> - Only for background video  variations </p>
+                    <p>The script is loaded in index.html from: <strong> js/video.js </strong>  </p>
+                    <img src="images/screen9.jpg" alt="">
+                    <h2 id="pages">Sections</h2>
+                    <p>Each section has tag <strong> < Section > </strong> and unique id like #services , #contact , etc</p>
+                    <img src="images/screen10.jpg" alt="">
+                    <h2 id="icons">Icons</h2>
+                    <p>Exemple: <strong><span> < </span>span class="nc-icon-outline heart"<span> > </span></strong> , where "nc-icon-outline" is icon general class and "heart" is the unique name of the icon.</p>
+                    <img src="images/screen11.jpg" alt="">
+                    <p>Check full icon list <strong><a href="http://keysoft.themetek.com/icons.html" target="_blank">Here</a></strong></p>
+                    <img src="images/screen12.jpg" alt="">
+                    <h2 id="map">Google Map</h2>
+                    <p>The google map settings ( colors, zoom, coordinates ) are in <strong>js/scripts.js</strong> from line: 400.</p>
+                    <img src="images/screen13.jpg" alt="">
+                    <h2 id="contact">Contact Form</h2>
+                    <p>The <strong>Contact Form</strong> layout is defined in index.html</p>
+                    <img src="images/screen14.jpg" alt="">
+                    <p>Contact form uses php to send emails. In <strong>mail/contact_me.php</strong> file , change the current email "yourname@yourdomain.com" to your email address. </p>
+                    <img src="images/screen15.jpg" alt="">
+                    <h2 id="support">Support</h2>
+                    <p>Support Ticket Platform: <a href="http://keydesign.ticksy.com" target="_blank">keydesign.ticksy.com</a></p>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <!--/container-->
+        <div class="footer">
+            <p>KeySoft - Software Landing Page</p>
+        </div>
+        <script type="text/javascript" src="js/SmoothScroll.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

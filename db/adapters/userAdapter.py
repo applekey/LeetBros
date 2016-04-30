@@ -1,6 +1,10 @@
 from dbAdapter import *
 
 class userAdapter(dbAdapter):
+    def __init__(self, username,password,host,database):
+        super(userAdapter, self).__init__(username,password,host,database)
+        self.dbName = 'user'
+
     def queryUser(self,user,password):
         cursor = None
         try:

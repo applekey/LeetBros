@@ -1,6 +1,6 @@
 import mysql.connector
 
-class dbAdapter:
+class dbAdapter(object):
     # config = {
     #   'user': 'scott',
     #   'password': 'tiger',
@@ -14,6 +14,7 @@ class dbAdapter:
         self.host = host
         self.database = database
         self.connection = None
+        self.dbName = None
 
     def connect(self):
         self.connection = mysql.connector.connect(user=self.username, password=self.password,
@@ -32,6 +33,26 @@ class dbAdapter:
         cursor.close()
         return result
 
+    def checkIfColumnExists(self, columnName):
+        if self.dbName == None:
+            raise ValueError('db name is not set, this should be set when you override the class!!!')
+            return False
+
+        if columnName == None:
+            return False
+
+        cursor = self.connection.cursor()
+        query = "show columns from {0} where field = '{1}';".format(self.dbName, columnName)
+        print query
+        cursor.execute(query)
+
+        result = cursor.fetchone()
+        cursor.close()
+
+        if result:
+            return True
+        else:
+            return False
 
     def disconnect(self):
         self.connection.close()

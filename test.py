@@ -3,10 +3,31 @@ attachmentDirectory = os.path.join(os.getcwd(),'services')
 sys.path.append(attachmentDirectory)
 from serviceInclude import *
 from datetime import datetime, date, time
-
 from templateAdapter import *
-
 from sendGridAdapter import *  
+from templateEngine import * 
+
+
+def testTemplateEngine():
+
+	text = 'simply dummy $userAttribute text of the printing and typesetting'
+	text+= ' industry. Lorem Ipsum has been the industr'
+	clientId = 'dummyClientId'
+
+	tEngine = templateEngine()
+	tEngine.replace(text,clientId)
+
+
+testTemplateEngine()
+
+def testCheckIfColumnExists():
+	tAdapter = templateAdapter(*dbManager.getDBConfig())
+	tAdapter.connect()
+	print tAdapter.checkIfColumnExists('abcd')
+	print tAdapter.checkIfColumnExists('description')
+	tAdapter.disconnect()
+
+#testCheckIfColumnExists()
 
 #template tests
 def testEmail():
@@ -24,7 +45,7 @@ def testEmail():
 	sgA.sendEmail(data)
 
 
-testEmail()
+#testEmail()
 
 
 

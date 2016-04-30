@@ -1,0 +1,399 @@
+/*
+A Bootstrap 3.1 affix sidebar template
+from http://bootply.com
+
+This CSS code should follow the 'bootstrap.css'
+in your HTML file.
+
+license: MIT
+author: bootply.com
+*/
+@import url("//fonts.googleapis.com/css?family=Roboto:400,500");
+
+body {
+	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.6em;
+	color: #3e3f3a;
+	background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.1;
+  color: inherit;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small,
+.h1 small,
+.h2 small,
+.h3 small,
+.h4 small,
+.h5 small,
+.h6 small,
+h1 .small,
+h2 .small,
+h3 .small,
+h4 .small,
+h5 .small,
+h6 .small,
+.h1 .small,
+.h2 .small,
+.h3 .small,
+.h4 .small,
+.h5 .small,
+.h6 .small {
+  font-weight: normal;
+  line-height: 1;
+  color: #98978b;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+h1 small,
+.h1 small,
+h2 small,
+.h2 small,
+h3 small,
+.h3 small,
+h1 .small,
+.h1 .small,
+h2 .small,
+.h2 .small,
+h3 .small,
+.h3 .small {
+  font-size: 65%;
+}
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+h4 small,
+.h4 small,
+h5 small,
+.h5 small,
+h6 small,
+.h6 small,
+h4 .small,
+.h4 .small,
+h5 .small,
+.h5 .small,
+h6 .small,
+.h6 .small {
+  font-size: 75%;
+}
+h1,
+.h1 {
+  font-size: 32px;
+}
+h2,
+.h2 {
+  font-size: 26px;
+  font-weight: 600;
+}
+h3,
+.h3 {
+  font-size: 20px;
+}
+h4,
+.h4 {
+  font-size: 14px;
+}
+h5,
+.h5 {
+  font-size: 14px;
+}
+h6,
+.h6 {
+  font-size: 12px;
+}
+p {
+  margin: 0 0 10px;
+}
+a, a:focus, a:active {
+   outline: 0;
+}
+
+/* Navbar styles */
+.navbar-default {
+    background-color: #3E3F3A;
+    border-color: #3E3F3A;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #98978B;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #FFF;
+    background-color: transparent;
+}
+
+.navbar .nav > li > a {
+    font-size: 11px;
+    line-height: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.navbar {
+	min-height: 63px;
+}
+
+.navbar-nav {
+	float: right;
+}
+
+.navbar-default .navbar-brand, 
+.navbar-default .navbar-brand:hover{
+    color: #FFF;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 10px 15px ;
+    font-size: 18px;
+    line-height: 20px;
+    height: 60px;
+}
+
+.navbar {
+    border-width: 0px;
+}
+
+@media (min-width: 768px) {
+	.navbar-nav > li > a {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}
+
+/* Masthead styles */
+
+#masthead {
+	position: relative;
+	display: block;
+	margin-top: 62px;
+	background-color: #EEE;
+	height: 360px;
+}
+
+#masthead h1 {
+	font-size: 30px;
+	line-height: 1;
+	padding-top: 60px;
+	text-align: center;
+	letter-spacing: -1px;
+}
+
+#masthead p {
+	font-size: 20px;
+	line-height: 1.2em;
+	padding-top: 20px;
+	text-align: center;
+}
+
+#masthead .well {
+ margin-top:8%;
+}
+
+#masthead .cta-button {
+	text-align: center;
+	display: block;
+	margin-top: 30px;
+	background-color: #3E3F3A;
+	border: 2px solid #3E3F3A;
+	width: 160px;
+	color: #FFF;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#masthead .cta-button a {
+	color: #FFF;
+	text-decoration: none;
+	line-height: 40px;
+	display: block;
+}
+
+#masthead .cta-button a:hover {
+	color: #3E3F3A;
+	text-decoration: none;
+}
+
+#masthead .cta-button:hover {
+	color: #3E3F3A;
+	border: 2px solid #3E3F3A;
+	background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  #masthead h1 {
+    font-size: 40px;
+  }
+}
+
+
+/* Left sidebar styles */
+.navbar-bright {
+ background-color:#111155;
+ color:#fff;
+}
+
+.affix-top,.affix{
+ position: static;
+}
+
+@media (min-width: 979px) {
+  #sidebar.affix-top {
+    position: static;
+  	margin-top: 90px;
+  	width: 228px;
+  }
+  
+  #sidebar.affix {
+    position: fixed;
+    top: 110px;
+    width: 228px;
+  }
+}
+#sidebar .sidebar-heading {
+    padding: 10px 15px;
+	background-color: #3E3F3A;
+	color: #FFF;
+	border-right: 1px solid #3E3F3A;
+}
+
+#sidebar .sidebar-heading a {
+	color: #FFF;
+}
+
+#sidebar .sidebar-heading a:hover {
+	background-color: #3E3F3A;
+	color: #FFF;
+}
+
+#sidebar .sidebar-heading.active {
+  border: 0px;
+  color: #FFF;
+  background-color: #3E3F3A;
+}
+
+#sidebar .sidebar-heading a:focus {
+  background-color: #3E3F3A;
+}
+
+#sidebar .sidebar-heading.active a {
+	font-weight: 400;
+}
+
+#sidebar .sidebar-heading > a {
+    padding: 0px;
+}
+
+#sidebar .sidebar-heading:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    width: 13px;
+    height: 9px;
+    background: url('../images/chevron.svg') no-repeat scroll center top transparent;
+}
+
+#sidebar li a {
+	color: #3E3F3A;
+	padding-left: 15px;
+}
+
+#sidebar li a:hover {
+	background-color: #EEE;
+}
+
+#sidebar li.active a {
+	font-weight: 500;
+}
+
+#sidebar li.active {
+  border: 0 #3E3F3A solid;
+  color: #3E3F3A;
+  border-left-width: 2px;
+  background-color: #EEE;
+}
+
+#sidebar li a:focus {
+  background-color: #EEE;
+}
+
+/* Content styles */
+
+#mainContent {
+	margin-bottom: 80px;
+}
+
+#mainContent img {
+	max-width: 100%;
+	margin: 15px 0;
+}
+
+.bg-warning {
+    background-color: #FF851B;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.first-heading-item {
+	margin-top: 90px;
+}
+
+.footer {
+	background-color: #3E3F3A;
+	padding: 10px 0;
+}
+
+.footer p {
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	color: #FFF;
+	font-size: 11px;
+	text-transform: uppercase;
+	line-height: 1em;
+}
+
+.footer a {
+	color: #98978B;
+}
+.footer a:hover {
+	color: #FFF;
+	text-decoration: none;
+}

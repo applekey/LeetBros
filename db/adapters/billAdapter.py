@@ -2,6 +2,10 @@ from dbAdapter import *
 from datetime import datetime, date, time
 class billAdapter(dbAdapter):
 
+    def __init__(self, username,password,host,database):
+        super(billAdapter, self).__init__(username,password,host,database)
+        self.dbName = 'bill'
+
     def insertBill(self, data):
         cursor = None
         try:
