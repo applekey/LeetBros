@@ -8,6 +8,13 @@ from sendGridAdapter import *
 from templateEngine import * 
 
 
+def testGetColumnValueIfExistsForClient():
+	tAdapter = templateAdapter(*dbManager.getDBConfig())
+	tAdapter.connect()
+	print tAdapter.GetColumnValueIfExistsForClient('TemplateText','204de18f-ed4f-11e5-8824-8c89a5c59145')
+	tAdapter.disconnect()
+testGetColumnValueIfExistsForClient()
+
 def testTemplateEngine():
 
 	text = 'simply dummy $userAttribute text of the printing and typesetting'
@@ -18,7 +25,7 @@ def testTemplateEngine():
 	tEngine.replace(text,clientId)
 
 
-testTemplateEngine()
+#testTemplateEngine()
 
 def testCheckIfColumnExists():
 	tAdapter = templateAdapter(*dbManager.getDBConfig())

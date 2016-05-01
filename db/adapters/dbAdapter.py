@@ -54,7 +54,7 @@ class dbAdapter(object):
 
         cursor = self.connection.cursor()
         query = "show columns from {0} where field = '{1}';".format(self.dbName, columnName)
-        print query
+
         cursor.execute(query)
 
         result = cursor.fetchone()
@@ -64,9 +64,12 @@ class dbAdapter(object):
             return None
         
         query = "select {0} from {1} where {2} = '{3}';".format(columnName, self.dbName, self.clientIdentifierColumnName, clientId)
+        cursor.execute(query)
         row = cursor.fetchone()
         result = []
-        result.append(dict(zip(cursor.column_names, row)))
+        while row is not None:
+            result.append(dict(zip(cursor.column_names, row)))
+            row = cursor.fetchone()
         cursor.close()
         return result
 

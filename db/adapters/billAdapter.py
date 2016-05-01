@@ -5,6 +5,7 @@ class billAdapter(dbAdapter):
     def __init__(self, username,password,host,database):
         super(billAdapter, self).__init__(username,password,host,database)
         self.dbName = 'bill'
+        self.clientIdentifierColumnName = 'BillIssuerId'
 
     def insertBill(self, data):
         cursor = None

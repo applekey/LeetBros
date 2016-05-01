@@ -9,31 +9,47 @@ class templateEngine:
         ## a func to do some addtional checking
         return attributeName
 
-    def __handleUserAttributes(self, attributeName):
+    def __handleUserAttributes(self, attributeName, clientId):
         usrAdapter =userAdapter(*dbManager.getDBConfig())
         usrAdapter.connect() 
         __scrubColumnName(attributeName)
 
-        if not usrAdapter.checkIfColumnExists(attributeName):
-            return None
+        result = userAdapter.GetColumnValueIfExistsForClient(attributeName, clientId)
         ## get the data here?
         
-
         usrAdapter.disconnect()
+        if not result:
+            return None
+        else:
+            return result
 
     def __handleBillAttributes(self, attributeName):
         billAdap = billAdapter(*dbManager.getDBConfig())
         billAdap.connect()
 
         __scrubColumnName(attributeName)
+        result = billAdap.GetColumnValueIfExistsForClient(attributeName, clientId)
+        ## get the data here?
+        
         billAdap.disconnect()
+        if not result:
+            return None
+        else:
+            return result
 
     def __handleTemplateAttributes(self, attributeName):
         tAdapter = templateAdapter(*dbManager.getDBConfig())
         tAdapter.connect()
         __scrubColumnName(attributeName)
 
+        result = tAdapter.GetColumnValueIfExistsForClient(attributeName, clientId)
+        ## get the data here?
+        
         tAdapter.disconnect()
+        if not result:
+            return None
+        else:
+            return result
 
 
     def replace(self, text, clientId):

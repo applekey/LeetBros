@@ -5,6 +5,7 @@ class templateAdapter(dbAdapter):
     def __init__(self, username,password,host,database):
         super(templateAdapter, self).__init__(username,password,host,database)
         self.dbName = 'template'
+        self.clientIdentifierColumnName = 'Creator'
 
     def StoreTemplate(self,data, clientId):
         cursor = None
