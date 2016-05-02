@@ -13,19 +13,19 @@ def testGetColumnValueIfExistsForClient():
 	tAdapter.connect()
 	print tAdapter.GetColumnValueIfExistsForClient('TemplateText','204de18f-ed4f-11e5-8824-8c89a5c59145')
 	tAdapter.disconnect()
-testGetColumnValueIfExistsForClient()
+#testGetColumnValueIfExistsForClient()
 
 def testTemplateEngine():
 
-	text = 'simply dummy $userAttribute text of the printing and typesetting'
+	text = 'simply dummy $userEmail text of the printing and typesetting'
 	text+= ' industry. Lorem Ipsum has been the industr'
-	clientId = 'dummyClientId'
+	clientId = '204de18f-ed4f-11e5-8824-8c89a5c59145'
 
 	tEngine = templateEngine()
-	tEngine.replace(text,clientId)
+	print tEngine.replace(text,clientId)
 
 
-#testTemplateEngine()
+testTemplateEngine()
 
 def testCheckIfColumnExists():
 	tAdapter = templateAdapter(*dbManager.getDBConfig())

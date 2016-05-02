@@ -12,9 +12,9 @@ class templateEngine:
     def __handleUserAttributes(self, attributeName, clientId):
         usrAdapter =userAdapter(*dbManager.getDBConfig())
         usrAdapter.connect() 
-        __scrubColumnName(attributeName)
+        self.__scrubColumnName(attributeName)
 
-        result = userAdapter.GetColumnValueIfExistsForClient(attributeName, clientId)
+        result = usrAdapter.GetColumnValueIfExistsForClient(attributeName, clientId)
         ## get the data here?
         
         usrAdapter.disconnect()
@@ -23,11 +23,11 @@ class templateEngine:
         else:
             return result
 
-    def __handleBillAttributes(self, attributeName):
+    def __handleBillAttributes(self, attributeName, clientId):
         billAdap = billAdapter(*dbManager.getDBConfig())
         billAdap.connect()
 
-        __scrubColumnName(attributeName)
+        self.__scrubColumnName(attributeName)
         result = billAdap.GetColumnValueIfExistsForClient(attributeName, clientId)
         ## get the data here?
         
@@ -37,10 +37,10 @@ class templateEngine:
         else:
             return result
 
-    def __handleTemplateAttributes(self, attributeName):
+    def __handleTemplateAttributes(self, attributeName, clientId):
         tAdapter = templateAdapter(*dbManager.getDBConfig())
         tAdapter.connect()
-        __scrubColumnName(attributeName)
+        self.__scrubColumnName(attributeName)
 
         result = tAdapter.GetColumnValueIfExistsForClient(attributeName, clientId)
         ## get the data here?
@@ -67,18 +67,19 @@ class templateEngine:
 
             if uFind != -1:
                 subText = t[uFind+len('$user'):]
-                replacement = __handleUserAttributes(subText)
+                replacement = self.__handleUserAttributes(subText,clientId)
             elif bFind != -1:
-                subText = t[uFind+len('$user'):]
-                replacement = __handleBillAttributes(subText)
+                subText = t[uFind+len('$bill'):]
+                replacement = self.__handleBillAttributes(subText,clientId)
             elif tFind != -1:
-                subText = t[uFind+len('$user'):]
-                replacement = __handleTemplateAttributes(subText)
+                subText = t[uFind+len('$template'):]
+                replacement = self.__handleTemplateAttributes(subText,clientId)
 
             if replacement:
                 ## replace the text, this is super inefficient and bad code
                 ## me know, me clean up later
-                newTxt.replace(t, replacement)
+                replacementValue = replacement[0].values()[0]
+                newTxt = newTxt.replace(t, replacementValue)
                 smthToReplace = True
 
         if smthToReplace:
